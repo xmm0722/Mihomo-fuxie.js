@@ -482,7 +482,7 @@ proxy-groups:
     include-all: true
     filter: 法国|FR|🇫🇷
   - icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/United_Kingdom.png
-    name: GB
+    name: UK
     type: url-test
     interval: 300000
     timeout: 1500
