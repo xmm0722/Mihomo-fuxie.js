@@ -667,4 +667,4 @@ rules:
   - RULE-SET,Hijacking,Hijacking
   - RULE-SET,Github,HK
   - GEOIP,CN,China
-  - MATCH,AUTO
+  - MATCH,HK
