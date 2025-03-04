@@ -33,7 +33,7 @@ proxy-groups:
     include-all: true
     exclude-filter: (?i)GB|Traffic|Expire|Premium|频道|订阅|ISP|流量|到期|重置
     type: url-test
-    interval: 300000
+    interval: 600
     timeout: 1500
     tolerance: 50
     url: https://www.gstatic.com/generate_204
