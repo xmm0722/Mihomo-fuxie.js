@@ -481,7 +481,15 @@ proxy-groups:
     tolerance: 50
     include-all: true
     filter: 法国|FR|🇫🇷
-      
+  - icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/United_Kingdom.png
+    name: GB
+    type: url-test
+    interval: 300000
+    timeout: 1500
+    tolerance: 50
+    include-all: true
+    filter: 英国|GB|🇬🇧
+
 rule-providers:
   AdBlock:
     url: https://cdn.jsdelivr.net/gh/REIJI007/AdBlock_Rule_For_Clash@master/adblock_reject.yaml
@@ -623,6 +631,11 @@ rule-providers:
     behavior: classical
     interval: 86400
     type: http
+  Github:
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/GitHub/GitHub_No_Resolve.yaml
+    behavior: classical
+    interval: 86400
+    type: http
 
 rules:
   - RULE-SET,AdBlock,REJECT
@@ -652,5 +665,6 @@ rules:
   - RULE-SET,Gemini,Gemini
   - RULE-SET,Claude,Claude
   - RULE-SET,Hijacking,Hijacking
+  - RULE-SET,Github,HK
   - GEOIP,CN,China
   - MATCH,AUTO
