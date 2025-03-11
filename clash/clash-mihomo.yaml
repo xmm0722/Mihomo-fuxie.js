@@ -19,8 +19,8 @@ dns:
     proxy-server-nameserver:
       - https://doh.pub/dns-query
       - https://dns.alidns.com/dns-query
-    fallback: ['https://doh.dns.sb/dns-query', 'https://dns.cloudflare.com/dns-query', 'https://dns.twnic.tw/dns-query', 'tls://8.8.4.4:853']
-    fallback-filter: { geoip: false, ipcidr: [240.0.0.0/4, 0.0.0.0/32, 61.160.148.90/32, '3131:3131:3131:3131:3131:3131:3131:3131/128'], domain: [+.fmta.boo] }
+    fallback: ['https://doh.dns.sb/dns-query', 'https://dns.cloudflare.com/dns-query', 'https://dns.google/dns-query', 'tls://8.8.4.4:853']
+    fallback-filter: { geoip: true, ipcidr: [240.0.0.0/4, 0.0.0.0/32, 61.160.148.90/32, '3131:3131:3131:3131:3131:3131:3131:3131/128'], domain: [+.fmta.boo] }
 
 
 proxy-groups:
