@@ -24,22 +24,22 @@ dns:
 
 proxy-groups:
   - icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Global.png
-    name: GLOBAL
+    name: Wans
     type: select
     include-all: true
     proxies:
       - DIRECT
-      - Wans
+      - AUTO
       - REJECT
   - icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Speedtest.png
-    name: Wans
-    include-all: true
+    url: https://www.gstatic.com/generate_204
     exclude-filter: (?i)GB|Traffic|Expire|Premium|频道|订阅|ISP|流量|到期|重置
+    include-all: true
     type: url-test
     interval: 600
     timeout: 1500
     tolerance: 50
-    url: https://www.gstatic.com/generate_204
+    name: AUTO
   - icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Apple.png
     name: Apple
     type: select
@@ -55,7 +55,7 @@ proxy-groups:
       - DE
       - SG
       - FR
-      - Wans
+      - AUTO
       - REJECT
     
   - icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Telegram.png
@@ -72,7 +72,7 @@ proxy-groups:
       - DE
       - SG
       - FR
-      - Wans
+      - AUTO
       - DIRECT
       - REJECT
       
@@ -90,7 +90,7 @@ proxy-groups:
       - DE
       - SG
       - FR
-      - Wans
+      - AUTO
       - DIRECT
       - REJECT
 
@@ -101,7 +101,7 @@ proxy-groups:
     exclude-filter: (?i)GB|Traffic|Expire|Premium|频道|订阅|ISP|流量|到期|重置
     proxies:
       - DIRECT
-      - Wans
+      - AUTO
       - REJECT
       - HK
       - TW
@@ -125,7 +125,7 @@ proxy-groups:
       - DE
       - SG
       - FR
-      - Wans
+      - AUTO
       - DIRECT
       
   - icon: https://raw.githubusercontent.com/guaishouxiaoqi/icons/master/Color/Gemini.png
@@ -142,7 +142,7 @@ proxy-groups:
       - DE
       - SG
       - FR
-      - Wans
+      - AUTO
       - DIRECT
      
   - icon: https://raw.githubusercontent.com/ke1ewang/Qi/master/Claude.png
@@ -159,7 +159,7 @@ proxy-groups:
       - DE
       - SG
       - FR
-      - Wans
+      - AUTO
       - DIRECT
     
   - icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/TikTok.png
@@ -176,7 +176,7 @@ proxy-groups:
       - DE
       - SG
       - FR
-      - Wans
+      - AUTO
       - DIRECT
   - icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Spotify.png
     name: Spotify
@@ -192,7 +192,7 @@ proxy-groups:
       - DE
       - SG
       - FR
-      - Wans
+      - AUTO
       - DIRECT
 
   - icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Netflix.png
@@ -209,7 +209,7 @@ proxy-groups:
       - DE
       - SG
       - FR
-      - Wans
+      - AUTO
       - DIRECT
       
   - icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Disney.png
@@ -226,7 +226,7 @@ proxy-groups:
       - DE
       - SG
       - FR
-      - Wans
+      - AUTO
       - DIRECT
       
   - icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Google.png
@@ -243,7 +243,7 @@ proxy-groups:
       - DE
       - SG
       - FR
-      - Wans
+      - AUTO
       - DIRECT
       
   - icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/OneDrive.png
@@ -253,7 +253,7 @@ proxy-groups:
     exclude-filter: (?i)GB|Traffic|Expire|Premium|频道|订阅|ISP|流量|到期|重置
     proxies:
       - DIRECT
-      - Wans
+      - AUTO
       - HK
       - TW
       - JP
@@ -269,7 +269,7 @@ proxy-groups:
     exclude-filter: (?i)GB|Traffic|Expire|Premium|频道|订阅|ISP|流量|到期|重置
     proxies:
       - DIRECT
-      - Wans
+      - AUTO
       - REJECT
       - HK
       - TW
@@ -291,7 +291,7 @@ proxy-groups:
       - DE
       - SG
       - FR
-      - Wans
+      - AUTO
       - DIRECT
     
   - icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Scholar.png
@@ -308,7 +308,7 @@ proxy-groups:
       - DE
       - SG
       - FR
-      - Wans
+      - AUTO
       - DIRECT
     
   - icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Twitter.png
@@ -325,7 +325,7 @@ proxy-groups:
       - DE
       - SG
       - FR
-      - Wans
+      - AUTO
       - DIRECT
     
   - icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Global.png
@@ -340,7 +340,7 @@ proxy-groups:
       - DE
       - SG
       - FR
-      - Wans
+      - AUTO
       - DIRECT
 
 
@@ -359,7 +359,7 @@ proxy-groups:
       - DE
       - SG
       - FR
-      - Wans
+      - AUTO
       - DIRECT
     
   - icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Steam.png
@@ -377,7 +377,7 @@ proxy-groups:
       - DE
       - SG
       - FR
-      - Wans
+      - AUTO
 
     
   - icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Game.png
@@ -395,7 +395,7 @@ proxy-groups:
       - DE
       - SG
       - FR
-      - Wans
+      - AUTO
 
     
   - icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Hijacking.png
@@ -412,7 +412,7 @@ proxy-groups:
       - DE
       - SG
       - FR
-      - Wans
+      - AUTO
       - DIRECT
     
   - icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/China.png
@@ -498,182 +498,182 @@ rule-providers:
   #   url: https://cdn.jsdelivr.net/gh/REIJI007/AdBlock_Rule_For_Clash@master/adblock_reject.yaml
   #   behavior: domain
   #   interval: 86400
-  #   proxy: Wans
+  #   proxy: AUTO
   #   type: http
   Lan:
     url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Lan/Lan.yaml
     behavior: classical
     interval: 86400
-    proxy: Wans
+    proxy: AUTO
     type: http
   Apple:
     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Apple/Apple_Classical.yaml
     behavior: classical
     interval: 86400
-    proxy: Wans
+    proxy: AUTO
     type: http
   Telegram:
     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Telegram/Telegram.yaml
     behavior: classical
     interval: 86400
-    proxy: Wans
+    proxy: AUTO
     type: http
   YouTube:
     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/YouTube/YouTube.yaml
     behavior: classical
     interval: 86400
-    proxy: Wans
+    proxy: AUTO
     type: http
   BiliBili:
     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/BiliBili/BiliBili.yaml
     behavior: classical
     interval: 86400
-    proxy: Wans
+    proxy: AUTO
     type: http
   TikTok:
     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/TikTok/TikTok.yaml
     behavior: classical
     interval: 86400
-    proxy: Wans
+    proxy: AUTO
     type: http
   Spotify:
     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Spotify/Spotify.yaml
     behavior: classical
     interval: 86400
-    proxy: Wans
+    proxy: AUTO
     type: http
   Netflix:
     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Netflix/Netflix.yaml
     behavior: classical
     interval: 86400
-    proxy: Wans
+    proxy: AUTO
     type: http
   Disney:
     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Disney/Disney.yaml
     behavior: classical
     interval: 86400
-    proxy: Wans
+    proxy: AUTO
     type: http
   Google:
     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Google/Google.yaml
     behavior: classical
     interval: 86400
-    proxy: Wans
+    proxy: AUTO
     type: http
   OpenAI:
     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/OpenAI/OpenAI.yaml
     behavior: classical
     interval: 86400
-    proxy: Wans
+    proxy: AUTO
     type: http
   Microsoft:
     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Microsoft/Microsoft.yaml
     behavior: classical
     interval: 86400
-    proxy: Wans
+    proxy: AUTO
     type: http
   LinkedIn:
     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/LinkedIn/LinkedIn.yaml
     behavior: classical
     interval: 86400
-    proxy: Wans
+    proxy: AUTO
     type: http
   Scholar:
     url: https://raw.githubusercontent.com/LM-Firefly/Rules/9443f8126d70769b83b2594c42a157bbf779962c/Clash-RuleSet-Classical/PROXY/Scholar.yaml
     behavior: classical
     interval: 86400
-    proxy: Wans
+    proxy: AUTO
     type: http
   Twitter:
     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Twitter/Twitter.yaml
     behavior: classical
     interval: 86400
-    proxy: Wans
+    proxy: AUTO
     type: http
   GameDownload:
     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Game/GameDownload/GameDownload.yaml
     behavior: classical
     interval: 86400
-    proxy: Wans
+    proxy: AUTO
     type: http
   GameDownloadCN:
     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Game/GameDownloadCN/GameDownloadCN.yaml
     behavior: classical
     interval: 86400
-    proxy: Wans
+    proxy: AUTO
     type: http
   Steam:
     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Steam/Steam.yaml
     behavior: classical
     interval: 86400
-    proxy: Wans
+    proxy: AUTO
     type: http
   SteamCN:
     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/SteamCN/SteamCN.yaml
     behavior: classical
     interval: 86400
-    proxy: Wans
+    proxy: AUTO
     type: http
   OneDrive:
     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/OneDrive/OneDrive.yaml
     behavior: classical
     interval: 86400
-    proxy: Wans
+    proxy: AUTO
     type: http
   Emby:
     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Emby/Emby.yaml
     behavior: classical
     interval: 86400
-    proxy: Wans
+    proxy: AUTO
     type: http
   HoYoverse:
     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/HoYoverse/HoYoverse.yaml
     behavior: classical
     interval: 86400
-    proxy: Wans
+    proxy: AUTO
     type: http
   GlobalMedia:
     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/GlobalMedia/GlobalMedia_Classical.yaml
     behavior: classical
     interval: 86400
-    proxy: Wans
+    proxy: AUTO
     type: http
   ChinaMax:
     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/ChinaMax/ChinaMax_Classical.yaml
     behavior: classical
     interval: 86400
-    proxy: Wans
+    proxy: AUTO
     type: http
   Gemini:
     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Gemini/Gemini.yaml
     behavior: classical
     interval: 86400
-    proxy: Wans
+    proxy: AUTO
     type: http
   Claude:
     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Claude/Claude.yaml
     behavior: classical
     interval: 86400
-    proxy: Wans
+    proxy: AUTO
     type: http
   Hijacking:
     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Hijacking/Hijacking.yaml
     behavior: classical
     interval: 86400
-    proxy: Wans
+    proxy: AUTO
     type: http
   Github:
     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/GitHub/GitHub_No_Resolve.yaml
     behavior: classical
     interval: 86400
-    proxy: Wans
+    proxy: AUTO
     type: http
   Dns_Leak:
     url: https://raw.githubusercontent.com/xishang0128/rules/main/clash%20or%20stash/prevent_dns_leak/prevent_dns_leak_domain.list
     behavior: domain
     interval: 86400
     format: text
-    proxy: Wans
+    proxy: AUTO
     type: http
 
 rules:
