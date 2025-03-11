@@ -20,18 +20,17 @@ dns:
     nameserver-policy: { +.makima.online: [119.29.29.29], 'geosite:cn,private': ['https://doh.pub/dns-query', 'https://dns.alidns.com/dns-query'] }
     fallback: ['https://1.1.1.1/dns-query', 'https://doh.apad.pro/dns-query']
     fallback-filter: { geoip: false, ipcidr: [240.0.0.0/4, 0.0.0.0/32, 61.160.148.90/32, '3131:3131:3131:3131:3131:3131:3131:3131/128'], domain: [+.fmta.boo] }
-
-
 proxy-groups:
-  - icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Global.png
-    name: Wans
+  - name: Wans
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Global.png
     type: select
     include-all: true
     proxies:
       - DIRECT
       - AUTO
       - REJECT
-  - icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Speedtest.png
+  - name: AUTO
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Speedtest.png
     url: https://www.gstatic.com/generate_204
     exclude-filter: (?i)GB|Traffic|Expire|Premium|频道|订阅|ISP|流量|到期|重置
     include-all: true
@@ -39,14 +38,14 @@ proxy-groups:
     interval: 600
     timeout: 1500
     tolerance: 50
-    name: AUTO
-  - icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Apple.png
-    name: Apple
+  - name: Apple
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Apple.png
     type: select
     include-all: true
     exclude-filter: (?i)GB|Traffic|Expire|Premium|频道|订阅|ISP|流量|到期|重置
     proxies:
       - DIRECT
+      - Wans
       - HK
       - TW
       - JP
@@ -55,15 +54,14 @@ proxy-groups:
       - DE
       - SG
       - FR
-      - AUTO
       - REJECT
-    
-  - icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Telegram.png
-    name: Telegram
+  - name: Telegram
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Telegram.png
     type: select
     include-all: true
     exclude-filter: (?i)GB|Traffic|Expire|Premium|频道|订阅|ISP|流量|到期|重置
     proxies:
+      - Wans
       - HK
       - TW
       - JP
@@ -72,16 +70,15 @@ proxy-groups:
       - DE
       - SG
       - FR
-      - AUTO
       - DIRECT
       - REJECT
-      
-  - icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/YouTube.png
-    name: YouTube
-    type: select
-    include-all: true
+  - name: YouTube
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/YouTube.png
     exclude-filter: (?i)GB|Traffic|Expire|Premium|频道|订阅|ISP|流量|到期|重置
+    include-all: true
+    type: select
     proxies:
+      - Wans
       - HK
       - TW
       - JP
@@ -90,18 +87,16 @@ proxy-groups:
       - DE
       - SG
       - FR
-      - AUTO
       - DIRECT
       - REJECT
-
-  - icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/bilibili.png
-    name: BiliBili
-    type: select
-    include-all: true
+  - name: BiliBili
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/bilibili.png
     exclude-filter: (?i)GB|Traffic|Expire|Premium|频道|订阅|ISP|流量|到期|重置
+    include-all: true
+    type: select
     proxies:
       - DIRECT
-      - AUTO
+      - Wans
       - REJECT
       - HK
       - TW
@@ -111,12 +106,13 @@ proxy-groups:
       - DE
       - SG
       - FR
-  - icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/ChatGPT.png
-    name: OpenAI
+  - name: OpenAI
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/ChatGPT.png
     type: select
     include-all: true
     exclude-filter: (?i)GB|Traffic|Expire|Premium|频道|订阅|ISP|流量|到期|重置
     proxies:
+      - Wans
       - US
       - TW
       - JP
@@ -125,15 +121,14 @@ proxy-groups:
       - DE
       - SG
       - FR
-      - AUTO
       - DIRECT
-      
-  - icon: https://raw.githubusercontent.com/guaishouxiaoqi/icons/master/Color/Gemini.png
-    name: Gemini
-    type: select
+  - name: Gemini
+    icon: https://raw.githubusercontent.com/guaishouxiaoqi/icons/master/Color/Gemini.png
     include-all: true
     exclude-filter: (?i)GB|Traffic|Expire|Premium|频道|订阅|ISP|流量|到期|重置
+    type: select
     proxies:
+      - Wans
       - HK
       - TW
       - JP
@@ -142,15 +137,14 @@ proxy-groups:
       - DE
       - SG
       - FR
-      - AUTO
       - DIRECT
-     
-  - icon: https://raw.githubusercontent.com/ke1ewang/Qi/master/Claude.png
-    name: Claude
+  - name: Claude
+    icon: https://raw.githubusercontent.com/ke1ewang/Qi/master/Claude.png
     type: select
     include-all: true
     exclude-filter: (?i)GB|Traffic|Expire|Premium|频道|订阅|ISP|流量|到期|重置
     proxies:
+      - Wans
       - US
       - TW
       - JP
@@ -159,15 +153,14 @@ proxy-groups:
       - DE
       - SG
       - FR
-      - AUTO
       - DIRECT
-    
-  - icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/TikTok.png
-    name: TikTok
+  - name: TikTok
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/TikTok.png
     type: select
     include-all: true
     exclude-filter: (?i)GB|Traffic|Expire|Premium|频道|订阅|ISP|流量|到期|重置
     proxies:
+      - Wans
       - HK
       - TW
       - JP
@@ -176,14 +169,14 @@ proxy-groups:
       - DE
       - SG
       - FR
-      - AUTO
       - DIRECT
-  - icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Spotify.png
-    name: Spotify
+  - name: Spotify
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Spotify.png
     type: select
     include-all: true
     exclude-filter: (?i)GB|Traffic|Expire|Premium|频道|订阅|ISP|流量|到期|重置
     proxies:
+      - Wans
       - HK
       - TW
       - JP
@@ -192,15 +185,14 @@ proxy-groups:
       - DE
       - SG
       - FR
-      - AUTO
       - DIRECT
-
-  - icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Netflix.png
-    name: Netflix
+  - name: Netflix
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Netflix.png
     type: select
     include-all: true
     exclude-filter: (?i)GB|Traffic|Expire|Premium|频道|订阅|ISP|流量|到期|重置
     proxies:
+      - Wans
       - HK
       - TW
       - JP
@@ -209,15 +201,14 @@ proxy-groups:
       - DE
       - SG
       - FR
-      - AUTO
       - DIRECT
-      
-  - icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Disney.png
-    name: Disney
+  - name: Disney
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Disney.png
     type: select
     include-all: true
     exclude-filter: (?i)GB|Traffic|Expire|Premium|频道|订阅|ISP|流量|到期|重置
     proxies:
+      - Wans
       - HK
       - TW
       - JP
@@ -226,15 +217,14 @@ proxy-groups:
       - DE
       - SG
       - FR
-      - AUTO
       - DIRECT
-      
-  - icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Google.png
-    name: Google
+  - name: Google
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Google.png
     type: select
     include-all: true
     exclude-filter: (?i)GB|Traffic|Expire|Premium|频道|订阅|ISP|流量|到期|重置
     proxies:
+      - Wans
       - HK
       - TW
       - JP
@@ -243,17 +233,15 @@ proxy-groups:
       - DE
       - SG
       - FR
-      - AUTO
       - DIRECT
-      
-  - icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/OneDrive.png
-    name: OneDrive
+  - name: OneDrive
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/OneDrive.png
     type: select
     include-all: true
     exclude-filter: (?i)GB|Traffic|Expire|Premium|频道|订阅|ISP|流量|到期|重置
     proxies:
       - DIRECT
-      - AUTO
+      - Wans
       - HK
       - TW
       - JP
@@ -262,14 +250,14 @@ proxy-groups:
       - DE
       - SG
       - FR
-  - icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Microsoft.png
-    name: Microsoft
+  - name: Microsoft
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Microsoft.png
     type: select
     include-all: true
     exclude-filter: (?i)GB|Traffic|Expire|Premium|频道|订阅|ISP|流量|到期|重置
     proxies:
       - DIRECT
-      - AUTO
+      - Wans
       - REJECT
       - HK
       - TW
@@ -279,10 +267,11 @@ proxy-groups:
       - DE
       - SG
       - FR
-  - icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Blinkload.png
-    name: LinkedIn
+  - name: LinkedIn
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Blinkload.png
     type: select
     proxies:
+      - Wans
       - HK
       - TW
       - JP
@@ -291,32 +280,14 @@ proxy-groups:
       - DE
       - SG
       - FR
-      - AUTO
       - DIRECT
-    
-  - icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Scholar.png
-    name: Scholar
-    type: select
-    include-all: true
-    exclude-filter: (?i)GB|Traffic|Expire|Premium|频道|订阅|ISP|流量|到期|重置
-    proxies:
-      - HK
-      - TW
-      - JP
-      - KR
-      - US
-      - DE
-      - SG
-      - FR
-      - AUTO
-      - DIRECT
-    
-  - icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Twitter.png
-    name: Twitter
+  - name: Scholar
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Scholar.png
     type: select
     include-all: true
     exclude-filter: (?i)GB|Traffic|Expire|Premium|频道|订阅|ISP|流量|到期|重置
     proxies:
+      - Wans
       - HK
       - TW
       - JP
@@ -325,32 +296,14 @@ proxy-groups:
       - DE
       - SG
       - FR
-      - AUTO
       - DIRECT
-    
-  - icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Global.png
-    name: GlobalMedia
-    type: select
-    proxies:
-      - HK
-      - TW
-      - JP
-      - KR
-      - US
-      - DE
-      - SG
-      - FR
-      - AUTO
-      - DIRECT
-
-
-    
-  - icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Emby.png
-    name: Emby
+  - name: Twitter
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Twitter.png
     type: select
     include-all: true
     exclude-filter: (?i)GB|Traffic|Expire|Premium|频道|订阅|ISP|流量|到期|重置
     proxies:
+      - Wans
       - HK
       - TW
       - JP
@@ -359,11 +312,39 @@ proxy-groups:
       - DE
       - SG
       - FR
-      - AUTO
       - DIRECT
-    
-  - icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Steam.png
-    name: Steam
+  - name: GlobalMedia
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Global.png
+    type: select
+    proxies:
+      - Wans
+      - HK
+      - TW
+      - JP
+      - KR
+      - US
+      - DE
+      - SG
+      - FR
+      - DIRECT
+  - name: Emby
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Emby.png
+    type: select
+    include-all: true
+    exclude-filter: (?i)GB|Traffic|Expire|Premium|频道|订阅|ISP|流量|到期|重置
+    proxies:
+      - Wans
+      - HK
+      - TW
+      - JP
+      - KR
+      - US
+      - DE
+      - SG
+      - FR
+      - DIRECT
+  - name: Steam
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Steam.png
     type: select
     include-all: true
     exclude-filter: (?i)GB|Traffic|Expire|Premium|频道|订阅|ISP|流量|到期|重置
@@ -377,11 +358,9 @@ proxy-groups:
       - DE
       - SG
       - FR
-      - AUTO
-
-    
-  - icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Game.png
-    name: OtherGame
+      - Wans
+  - name: OtherGame
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Game.png
     type: select
     include-all: true
     exclude-filter: (?i)GB|Traffic|Expire|Premium|频道|订阅|ISP|流量|到期|重置
@@ -395,11 +374,9 @@ proxy-groups:
       - DE
       - SG
       - FR
-      - AUTO
-
-    
-  - icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Hijacking.png
-    name: Hijacking
+      - Wans
+  - name: Hijacking
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Hijacking.png
     type: select
     include-all: true
     exclude-filter: (?i)GB|Traffic|Expire|Premium|频道|订阅|ISP|流量|到期|重置
@@ -412,272 +389,269 @@ proxy-groups:
       - DE
       - SG
       - FR
-      - AUTO
+      - Wans
       - DIRECT
-    
-  - icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/China.png
-    name: China
+  - name: China
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/China.png
     type: select
     proxies:
       - DIRECT
-  - icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Hong_Kong.png
-    name: HK
+  - name: HK
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Hong_Kong.png
     type: url-test
     interval: 300000
     timeout: 1500
     tolerance: 50
     include-all: true
     filter: 香港|HK|🇭🇰
-  - icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Taiwan.png
-    name: TW
+  - name: TW
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Taiwan.png
     type: url-test
     interval: 300000
     timeout: 1500
     tolerance: 50
     include-all: true
     filter: 台湾|TW|🇹🇼
-  - icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Japan.png
-    name: JP
+  - name: JP
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Japan.png
     type: url-test
     interval: 300000
     timeout: 1500
     tolerance: 50
     include-all: true
     filter: 日本|JP|🇯🇵
-  - icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Korea.png
-    name: KR
+  - name: KR
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Korea.png
     type: url-test
     interval: 300000
     timeout: 1500
     tolerance: 50
     include-all: true
     filter: 韩国|KR|🇰🇷
-  - icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/United_States.png
-    name: US
+  - name: US
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/United_States.png
     type: url-test
     interval: 300000
     timeout: 1500
     tolerance: 50
     include-all: true
     filter: 美国|US|🇺🇸
-  - icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Germany.png
-    name: DE
+  - name: DE
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Germany.png
     type: url-test
     interval: 300000
     timeout: 1500
     tolerance: 50
     include-all: true
     filter: 德国|DE|🇩🇪
-  - icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Singapore.png
-    name: SG
+  - name: SG
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Singapore.png
     type: url-test
     interval: 300000
     timeout: 1500
     tolerance: 50
     include-all: true
     filter: 新加坡|SG|🇸🇬
-  - icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/France.png
-    name: FR
+  - name: FR
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/France.png
     type: url-test
     interval: 300000
     timeout: 1500
     tolerance: 50
     include-all: true
     filter: 法国|FR|🇫🇷
-  - icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/United_Kingdom.png
-    name: UK
+  - name: UK
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/United_Kingdom.png
     type: url-test
     interval: 300000
     timeout: 1500
     tolerance: 50
     include-all: true
     filter: 英国|GB|🇬🇧
-
 rule-providers:
   # AdBlock:
   #   url: https://cdn.jsdelivr.net/gh/REIJI007/AdBlock_Rule_For_Clash@master/adblock_reject.yaml
   #   behavior: domain
   #   interval: 86400
-  #   proxy: AUTO
+  #   proxy: Wans
   #   type: http
   Lan:
     url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Lan/Lan.yaml
     behavior: classical
     interval: 86400
-    proxy: AUTO
+    proxy: Wans
     type: http
   Apple:
     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Apple/Apple_Classical.yaml
     behavior: classical
     interval: 86400
-    proxy: AUTO
+    proxy: Wans
     type: http
   Telegram:
     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Telegram/Telegram.yaml
     behavior: classical
     interval: 86400
-    proxy: AUTO
+    proxy: Wans
     type: http
   YouTube:
     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/YouTube/YouTube.yaml
     behavior: classical
     interval: 86400
-    proxy: AUTO
+    proxy: Wans
     type: http
   BiliBili:
     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/BiliBili/BiliBili.yaml
     behavior: classical
     interval: 86400
-    proxy: AUTO
+    proxy: Wans
     type: http
   TikTok:
     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/TikTok/TikTok.yaml
     behavior: classical
     interval: 86400
-    proxy: AUTO
+    proxy: Wans
     type: http
   Spotify:
     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Spotify/Spotify.yaml
     behavior: classical
     interval: 86400
-    proxy: AUTO
+    proxy: Wans
     type: http
   Netflix:
     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Netflix/Netflix.yaml
     behavior: classical
     interval: 86400
-    proxy: AUTO
+    proxy: Wans
     type: http
   Disney:
     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Disney/Disney.yaml
     behavior: classical
     interval: 86400
-    proxy: AUTO
+    proxy: Wans
     type: http
   Google:
     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Google/Google.yaml
     behavior: classical
     interval: 86400
-    proxy: AUTO
+    proxy: Wans
     type: http
   OpenAI:
     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/OpenAI/OpenAI.yaml
     behavior: classical
     interval: 86400
-    proxy: AUTO
+    proxy: Wans
     type: http
   Microsoft:
     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Microsoft/Microsoft.yaml
     behavior: classical
     interval: 86400
-    proxy: AUTO
+    proxy: Wans
     type: http
   LinkedIn:
     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/LinkedIn/LinkedIn.yaml
     behavior: classical
     interval: 86400
-    proxy: AUTO
+    proxy: Wans
     type: http
   Scholar:
     url: https://raw.githubusercontent.com/LM-Firefly/Rules/9443f8126d70769b83b2594c42a157bbf779962c/Clash-RuleSet-Classical/PROXY/Scholar.yaml
     behavior: classical
     interval: 86400
-    proxy: AUTO
+    proxy: Wans
     type: http
   Twitter:
     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Twitter/Twitter.yaml
     behavior: classical
     interval: 86400
-    proxy: AUTO
+    proxy: Wans
     type: http
   GameDownload:
     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Game/GameDownload/GameDownload.yaml
     behavior: classical
     interval: 86400
-    proxy: AUTO
+    proxy: Wans
     type: http
   GameDownloadCN:
     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Game/GameDownloadCN/GameDownloadCN.yaml
     behavior: classical
     interval: 86400
-    proxy: AUTO
+    proxy: Wans
     type: http
   Steam:
     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Steam/Steam.yaml
     behavior: classical
     interval: 86400
-    proxy: AUTO
+    proxy: Wans
     type: http
   SteamCN:
     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/SteamCN/SteamCN.yaml
     behavior: classical
     interval: 86400
-    proxy: AUTO
+    proxy: Wans
     type: http
   OneDrive:
     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/OneDrive/OneDrive.yaml
     behavior: classical
     interval: 86400
-    proxy: AUTO
+    proxy: Wans
     type: http
   Emby:
     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Emby/Emby.yaml
     behavior: classical
     interval: 86400
-    proxy: AUTO
+    proxy: Wans
     type: http
   HoYoverse:
     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/HoYoverse/HoYoverse.yaml
     behavior: classical
     interval: 86400
-    proxy: AUTO
+    proxy: Wans
     type: http
   GlobalMedia:
     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/GlobalMedia/GlobalMedia_Classical.yaml
     behavior: classical
     interval: 86400
-    proxy: AUTO
+    proxy: Wans
     type: http
   ChinaMax:
     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/ChinaMax/ChinaMax_Classical.yaml
     behavior: classical
     interval: 86400
-    proxy: AUTO
+    proxy: Wans
     type: http
   Gemini:
     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Gemini/Gemini.yaml
     behavior: classical
     interval: 86400
-    proxy: AUTO
+    proxy: Wans
     type: http
   Claude:
     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Claude/Claude.yaml
     behavior: classical
     interval: 86400
-    proxy: AUTO
+    proxy: Wans
     type: http
   Hijacking:
     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Hijacking/Hijacking.yaml
     behavior: classical
     interval: 86400
-    proxy: AUTO
+    proxy: Wans
     type: http
   Github:
     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/GitHub/GitHub_No_Resolve.yaml
     behavior: classical
     interval: 86400
-    proxy: AUTO
+    proxy: Wans
     type: http
   Dns_Leak:
     url: https://raw.githubusercontent.com/xishang0128/rules/main/clash%20or%20stash/prevent_dns_leak/prevent_dns_leak_domain.list
     behavior: domain
     interval: 86400
     format: text
-    proxy: AUTO
+    proxy: Wans
     type: http
-
 rules:
-  - RULE-SET,Dns_Leak,HK
+  - RULE-SET,Dns_Leak,Wans
   # - RULE-SET,AdBlock,REJECT
   - RULE-SET,Lan,DIRECT
   - RULE-SET,Telegram,Telegram
@@ -705,6 +679,6 @@ rules:
   - RULE-SET,Gemini,Gemini
   - RULE-SET,Claude,Claude
   - RULE-SET,Hijacking,Hijacking
-  - RULE-SET,Github,HK
+  - RULE-SET,Github,Wans
   - GEOIP,CN,China
-  - MATCH,HK
+  - MATCH,Wans
