@@ -498,156 +498,186 @@ rule-providers:
   #   url: https://cdn.jsdelivr.net/gh/REIJI007/AdBlock_Rule_For_Clash@master/adblock_reject.yaml
   #   behavior: domain
   #   interval: 86400
+  #   proxy: Wans
   #   type: http
   Lan:
     url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Lan/Lan.yaml
     behavior: classical
     interval: 86400
+    proxy: Wans
     type: http
   Apple:
     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Apple/Apple_Classical.yaml
     behavior: classical
     interval: 86400
+    proxy: Wans
     type: http
   Telegram:
     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Telegram/Telegram.yaml
     behavior: classical
     interval: 86400
+    proxy: Wans
     type: http
   YouTube:
     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/YouTube/YouTube.yaml
     behavior: classical
     interval: 86400
+    proxy: Wans
     type: http
   BiliBili:
     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/BiliBili/BiliBili.yaml
     behavior: classical
     interval: 86400
+    proxy: Wans
     type: http
   TikTok:
     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/TikTok/TikTok.yaml
     behavior: classical
     interval: 86400
+    proxy: Wans
     type: http
   Spotify:
     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Spotify/Spotify.yaml
     behavior: classical
     interval: 86400
+    proxy: Wans
     type: http
   Netflix:
     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Netflix/Netflix.yaml
     behavior: classical
     interval: 86400
+    proxy: Wans
     type: http
   Disney:
     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Disney/Disney.yaml
     behavior: classical
     interval: 86400
+    proxy: Wans
     type: http
   Google:
     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Google/Google.yaml
     behavior: classical
     interval: 86400
+    proxy: Wans
     type: http
   OpenAI:
     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/OpenAI/OpenAI.yaml
     behavior: classical
     interval: 86400
+    proxy: Wans
     type: http
   Microsoft:
     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Microsoft/Microsoft.yaml
     behavior: classical
     interval: 86400
+    proxy: Wans
     type: http
   LinkedIn:
     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/LinkedIn/LinkedIn.yaml
     behavior: classical
     interval: 86400
+    proxy: Wans
     type: http
   Scholar:
     url: https://raw.githubusercontent.com/LM-Firefly/Rules/9443f8126d70769b83b2594c42a157bbf779962c/Clash-RuleSet-Classical/PROXY/Scholar.yaml
     behavior: classical
     interval: 86400
+    proxy: Wans
     type: http
   Twitter:
     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Twitter/Twitter.yaml
     behavior: classical
     interval: 86400
+    proxy: Wans
     type: http
   GameDownload:
     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Game/GameDownload/GameDownload.yaml
     behavior: classical
     interval: 86400
+    proxy: Wans
     type: http
   GameDownloadCN:
     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Game/GameDownloadCN/GameDownloadCN.yaml
     behavior: classical
     interval: 86400
+    proxy: Wans
     type: http
   Steam:
     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Steam/Steam.yaml
     behavior: classical
     interval: 86400
+    proxy: Wans
     type: http
   SteamCN:
     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/SteamCN/SteamCN.yaml
     behavior: classical
     interval: 86400
+    proxy: Wans
     type: http
   OneDrive:
     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/OneDrive/OneDrive.yaml
     behavior: classical
     interval: 86400
+    proxy: Wans
     type: http
   Emby:
     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Emby/Emby.yaml
     behavior: classical
     interval: 86400
+    proxy: Wans
     type: http
   HoYoverse:
     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/HoYoverse/HoYoverse.yaml
     behavior: classical
     interval: 86400
+    proxy: Wans
     type: http
   GlobalMedia:
     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/GlobalMedia/GlobalMedia_Classical.yaml
     behavior: classical
     interval: 86400
+    proxy: Wans
     type: http
   ChinaMax:
     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/ChinaMax/ChinaMax_Classical.yaml
     behavior: classical
     interval: 86400
+    proxy: Wans
     type: http
   Gemini:
     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Gemini/Gemini.yaml
     behavior: classical
     interval: 86400
+    proxy: Wans
     type: http
   Claude:
     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Claude/Claude.yaml
     behavior: classical
     interval: 86400
+    proxy: Wans
     type: http
   Hijacking:
     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Hijacking/Hijacking.yaml
     behavior: classical
     interval: 86400
+    proxy: Wans
     type: http
   Github:
     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/GitHub/GitHub_No_Resolve.yaml
     behavior: classical
     interval: 86400
+    proxy: Wans
     type: http
-  prevent_dns_leak:
-    type: http
-    interval: 86400
-    behavior: domain
-    format: text
+  Dns_Leak:
     url: https://raw.githubusercontent.com/xishang0128/rules/main/clash%20or%20stash/prevent_dns_leak/prevent_dns_leak_domain.list
+    behavior: domain
+    interval: 86400
+    format: text
+    proxy: Wans
+    type: http
 
 rules:
-  - RULE-SET,prevent_dns_leak,HK
+  - RULE-SET,Dns_Leak,HK
   # - RULE-SET,AdBlock,REJECT
   - RULE-SET,Lan,DIRECT
   - RULE-SET,Telegram,Telegram
