@@ -29,10 +29,10 @@ proxy-groups:
     include-all: true
     proxies:
       - DIRECT
-      - AUTO
+      - Wans
       - REJECT
   - icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Speedtest.png
-    name: AUTO
+    name: Wans
     include-all: true
     exclude-filter: (?i)GB|Traffic|Expire|Premium|频道|订阅|ISP|流量|到期|重置
     type: url-test
@@ -55,7 +55,7 @@ proxy-groups:
       - DE
       - SG
       - FR
-      - AUTO
+      - Wans
       - REJECT
     
   - icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Telegram.png
@@ -72,7 +72,7 @@ proxy-groups:
       - DE
       - SG
       - FR
-      - AUTO
+      - Wans
       - DIRECT
       - REJECT
       
@@ -90,7 +90,7 @@ proxy-groups:
       - DE
       - SG
       - FR
-      - AUTO
+      - Wans
       - DIRECT
       - REJECT
 
@@ -101,7 +101,7 @@ proxy-groups:
     exclude-filter: (?i)GB|Traffic|Expire|Premium|频道|订阅|ISP|流量|到期|重置
     proxies:
       - DIRECT
-      - AUTO
+      - Wans
       - REJECT
       - HK
       - TW
@@ -125,7 +125,7 @@ proxy-groups:
       - DE
       - SG
       - FR
-      - AUTO
+      - Wans
       - DIRECT
       
   - icon: https://raw.githubusercontent.com/guaishouxiaoqi/icons/master/Color/Gemini.png
@@ -142,7 +142,7 @@ proxy-groups:
       - DE
       - SG
       - FR
-      - AUTO
+      - Wans
       - DIRECT
      
   - icon: https://raw.githubusercontent.com/ke1ewang/Qi/master/Claude.png
@@ -159,7 +159,7 @@ proxy-groups:
       - DE
       - SG
       - FR
-      - AUTO
+      - Wans
       - DIRECT
     
   - icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/TikTok.png
@@ -176,7 +176,7 @@ proxy-groups:
       - DE
       - SG
       - FR
-      - AUTO
+      - Wans
       - DIRECT
   - icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Spotify.png
     name: Spotify
@@ -192,7 +192,7 @@ proxy-groups:
       - DE
       - SG
       - FR
-      - AUTO
+      - Wans
       - DIRECT
 
   - icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Netflix.png
@@ -209,7 +209,7 @@ proxy-groups:
       - DE
       - SG
       - FR
-      - AUTO
+      - Wans
       - DIRECT
       
   - icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Disney.png
@@ -226,7 +226,7 @@ proxy-groups:
       - DE
       - SG
       - FR
-      - AUTO
+      - Wans
       - DIRECT
       
   - icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Google.png
@@ -243,7 +243,7 @@ proxy-groups:
       - DE
       - SG
       - FR
-      - AUTO
+      - Wans
       - DIRECT
       
   - icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/OneDrive.png
@@ -253,7 +253,7 @@ proxy-groups:
     exclude-filter: (?i)GB|Traffic|Expire|Premium|频道|订阅|ISP|流量|到期|重置
     proxies:
       - DIRECT
-      - AUTO
+      - Wans
       - HK
       - TW
       - JP
@@ -269,7 +269,7 @@ proxy-groups:
     exclude-filter: (?i)GB|Traffic|Expire|Premium|频道|订阅|ISP|流量|到期|重置
     proxies:
       - DIRECT
-      - AUTO
+      - Wans
       - REJECT
       - HK
       - TW
@@ -291,7 +291,7 @@ proxy-groups:
       - DE
       - SG
       - FR
-      - AUTO
+      - Wans
       - DIRECT
     
   - icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Scholar.png
@@ -308,7 +308,7 @@ proxy-groups:
       - DE
       - SG
       - FR
-      - AUTO
+      - Wans
       - DIRECT
     
   - icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Twitter.png
@@ -325,7 +325,7 @@ proxy-groups:
       - DE
       - SG
       - FR
-      - AUTO
+      - Wans
       - DIRECT
     
   - icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Global.png
@@ -340,7 +340,7 @@ proxy-groups:
       - DE
       - SG
       - FR
-      - AUTO
+      - Wans
       - DIRECT
 
 
@@ -359,7 +359,7 @@ proxy-groups:
       - DE
       - SG
       - FR
-      - AUTO
+      - Wans
       - DIRECT
     
   - icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Steam.png
@@ -377,7 +377,7 @@ proxy-groups:
       - DE
       - SG
       - FR
-      - AUTO
+      - Wans
 
     
   - icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Game.png
@@ -395,7 +395,7 @@ proxy-groups:
       - DE
       - SG
       - FR
-      - AUTO
+      - Wans
 
     
   - icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Hijacking.png
@@ -412,7 +412,7 @@ proxy-groups:
       - DE
       - SG
       - FR
-      - AUTO
+      - Wans
       - DIRECT
     
   - icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/China.png
@@ -494,11 +494,11 @@ proxy-groups:
     filter: 英国|GB|🇬🇧
 
 rule-providers:
-  AdBlock:
-    url: https://cdn.jsdelivr.net/gh/REIJI007/AdBlock_Rule_For_Clash@master/adblock_reject.yaml
-    behavior: domain
-    interval: 86400
-    type: http
+  # AdBlock:
+  #   url: https://cdn.jsdelivr.net/gh/REIJI007/AdBlock_Rule_For_Clash@master/adblock_reject.yaml
+  #   behavior: domain
+  #   interval: 86400
+  #   type: http
   Lan:
     url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Lan/Lan.yaml
     behavior: classical
@@ -648,7 +648,7 @@ rule-providers:
 
 rules:
   - RULE-SET,prevent_dns_leak,HK
-  - RULE-SET,AdBlock,REJECT
+  # - RULE-SET,AdBlock,REJECT
   - RULE-SET,Lan,DIRECT
   - RULE-SET,Telegram,Telegram
   - RULE-SET,YouTube,YouTube
