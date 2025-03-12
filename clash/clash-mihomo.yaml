@@ -26,9 +26,7 @@ proxy-groups:
     type: select
     include-all: true
     proxies:
-      - DIRECT
       - AUTO
-      - REJECT
       - HK
       - TW
       - JP
@@ -37,6 +35,8 @@ proxy-groups:
       - DE
       - SG
       - FR
+      - DIRECT
+      - REJECT
   - name: AUTO
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Speedtest.png
     url: https://www.gstatic.com/generate_204
