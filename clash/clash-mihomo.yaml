@@ -29,6 +29,14 @@ proxy-groups:
       - DIRECT
       - AUTO
       - REJECT
+      - HK
+      - TW
+      - JP
+      - KR
+      - US
+      - DE
+      - SG
+      - FR
   - name: AUTO
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Speedtest.png
     url: https://www.gstatic.com/generate_204
@@ -270,6 +278,8 @@ proxy-groups:
   - name: LinkedIn
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Blinkload.png
     type: select
+    include-all: true
+    exclude-filter: (?i)GB|Traffic|Expire|Premium|频道|订阅|ISP|流量|到期|重置
     proxies:
       - Wans
       - HK
@@ -316,6 +326,8 @@ proxy-groups:
   - name: GlobalMedia
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Global.png
     type: select
+    include-all: true
+    exclude-filter: (?i)GB|Traffic|Expire|Premium|频道|订阅|ISP|流量|到期|重置
     proxies:
       - Wans
       - HK
@@ -381,6 +393,7 @@ proxy-groups:
     include-all: true
     exclude-filter: (?i)GB|Traffic|Expire|Premium|频道|订阅|ISP|流量|到期|重置
     proxies:
+      - Wans
       - HK
       - TW
       - JP
@@ -389,7 +402,6 @@ proxy-groups:
       - DE
       - SG
       - FR
-      - Wans
       - DIRECT
   - name: China
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/China.png
