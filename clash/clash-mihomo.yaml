@@ -482,13 +482,13 @@ proxy-groups:
     filter: 英国|GB|🇬🇧
 rule-providers:
   # AdBlock:
-  #   url: https://cdn.jsdelivr.net/gh/REIJI007/AdBlock_Rule_For_Clash@master/adblock_reject.yaml
+  #   url: https://raw.githubusercontent.com/REIJI007/AdBlock_Rule_For_Clash/master/adblock_reject.yaml
   #   behavior: domain
   #   interval: 86400
   #   proxy: Wans
   #   type: http
   Lan:
-    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Lan/Lan.yaml
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Lan/Lan.yaml
     behavior: classical
     interval: 86400
     proxy: Wans
