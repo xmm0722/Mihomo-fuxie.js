@@ -208,6 +208,7 @@ const ruleProviders = {
   "Dns_Leak": {
     ...ruleProviderCommon,
     "behavior": "domain",
+    "format": "text",
     "url": "https://cdn.jsdelivr.net/gh/xishang0128/rules@main/clash%20or%20stash/prevent_dns_leak/prevent_dns_leak_domain.list",
     "path": "./ruleset/Dns_Leak.list"
   },
