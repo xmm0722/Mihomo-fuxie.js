@@ -7,51 +7,26 @@
  * URL: https://github.com/wanswu/my-backup
  */
 
-
-// 国内DNS服务器
-const domesticNameservers = [
-  "https://dns.alidns.com/dns-query", // 阿里云公共DNS
-  "https://doh.pub/dns-query", // 腾讯DNSPod
-  "https://doh.360.cn/dns-query" // 360安全DNS
-];
-// 国外DNS服务器
-const foreignNameservers = [
-  "https://1.1.1.1/dns-query", // Cloudflare(主)
-  "https://1.0.0.1/dns-query", // Cloudflare(备)
-  "https://208.67.222.222/dns-query", // OpenDNS(主)
-  "https://208.67.220.220/dns-query", // OpenDNS(备)
-  "https://194.242.2.2/dns-query", // Mullvad(主)
-  "https://194.242.2.3/dns-query" // Mullvad(备)
-];
 // DNS配置
 const dnsConfig = {
   "enable": true,
-  "listen": "0.0.0.0:1053",
   "ipv6": true,
-  "use-system-hosts": false,
-  "cache-algorithm": "arc",
+  "prefer-h3": false,
+  "respect-rules": true,
+  "default-nameserver": ["223.5.5.5", "119.29.29.29"],
   "enhanced-mode": "fake-ip",
   "fake-ip-range": "198.18.0.1/16",
-  "fake-ip-filter": [
-    // 本地主机/设备
-    "+.lan",
-    "+.local",
-    // Windows网络出现小地球图标
-    "+.msftconnecttest.com",
-    "+.msftncsi.com",
-    // QQ快速登录检测失败
-    "localhost.ptlogin2.qq.com",
-    "localhost.sec.qq.com",
-    // 微信快速登录检测失败
-    "localhost.work.weixin.qq.com"
-  ],
-  "default-nameserver": ["223.5.5.5", "119.29.29.29", "1.1.1.1", "8.8.8.8"],
-  "nameserver": [...domesticNameservers, ...foreignNameservers],
-  "proxy-server-nameserver": [...domesticNameservers, ...foreignNameservers],
-  "nameserver-policy": {
-    "geosite:private,cn,geolocation-cn": domesticNameservers,
-    "geosite:google,youtube,telegram,gfw,geolocation-!cn": foreignNameservers
-  }
+  "use-hosts": true,
+  "nameserver": ["1.1.1.1", "8.8.8.8"],
+  "proxy-server-nameserver": ['https://doh.pub/dns-query'],
+  "direct- nameserver": ['https://doh.pub/dns-query'],
+  "nameserver-policy": { "+.makima.online": ["119.29.29.29"], 'geosite:cn,private': ['https://doh.pub/dns-query', 'https://dns.alidns.com/dns-query'] },
+  "fallback": ['https://1.1.1.1/dns-query', 'https://doh.apad.pro/dns-query'],
+  "fallback-filter": {
+    "geoip": false,
+    "ipcidr": ["240.0.0.0/4", "0.0.0.0/32", "61.160.148.90/32", '3131:3131:3131:3131:3131:3131:3131:3131/128'],
+    "domain": ["+.fmta.boo"]
+  },
 };
 // 规则集通用配置
 const ruleProviderCommon = {
@@ -85,7 +60,7 @@ const ruleProviders = {
     "behavior": "classical",
     "url": "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/YouTube/YouTube.yaml",
     "path": "./ruleset/YouTube.yaml"
-  }, 
+  },
   "BiliBili": {
     ...ruleProviderCommon,
     "behavior": "classical",
@@ -236,7 +211,7 @@ const ruleProviders = {
     "url": "https://cdn.jsdelivr.net/gh/xishang0128/rules@main/clash%20or%20stash/prevent_dns_leak/prevent_dns_leak_domain.list",
     "path": "./ruleset/Dns_Leak.list"
   },
-  
+
 };
 // 规则
 const rules = [
@@ -277,7 +252,6 @@ const groupBaseOption = {
   "interval": 300,
   "timeout": 3000,
   "url": "https://www.google.com/generate_204",
-  "lazy": true,
   "max-failed-times": 3,
   "hidden": false
 };
@@ -308,11 +282,7 @@ function main(config) {
       ...groupBaseOption,
       "name": "AUTO",
       "type": "url-test",
-      "proxies": [],
       "include-all": true,
-      "url": "https://www.gstatic.com/generate_204",
-      "interval": 600,
-      "timeout": 1500,
       "tolerance": 50,
       "exclude-filter": "(?i)GB|Traffic|Expire|Premium|频道|订阅|ISP|流量|到期|重置",
       "icon": "https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Speedtest.png"
@@ -526,11 +496,8 @@ function main(config) {
       ...groupBaseOption,
       "name": "HK",
       "type": "url-test",
-      "proxies": [],
       "include-all": true,
       "filter": "香港|HK|🇭🇰",
-      "interval": 300000,
-      "timeout": 1500,
       "tolerance": 50,
       "icon": "https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Hong_Kong.png"
     },
@@ -538,11 +505,8 @@ function main(config) {
       ...groupBaseOption,
       "name": "TW",
       "type": "url-test",
-      "proxies": [],
       "include-all": true,
       "filter": "台湾|TW|🇹🇼",
-      "interval": 300000,
-      "timeout": 1500,
       "tolerance": 50,
       "icon": "https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Taiwan.png"
     },
@@ -550,11 +514,8 @@ function main(config) {
       ...groupBaseOption,
       "name": "JP",
       "type": "url-test",
-      "proxies": [],
       "include-all": true,
       "filter": "日本|JP|🇯🇵",
-      "interval": 300000,
-      "timeout": 1500,
       "tolerance": 50,
       "icon": "https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Japan.png"
     },
@@ -562,11 +523,8 @@ function main(config) {
       ...groupBaseOption,
       "name": "KR",
       "type": "url-test",
-      "proxies": [],
       "include-all": true,
       "filter": "韩国|KR|🇰🇷",
-      "interval": 300000,
-      "timeout": 1500,
       "tolerance": 50,
       "icon": "https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Korea.png"
     },
@@ -574,11 +532,8 @@ function main(config) {
       ...groupBaseOption,
       "name": "US",
       "type": "url-test",
-      "proxies": [],
       "include-all": true,
       "filter": "美国|US|🇺🇸",
-      "interval": 300000,
-      "timeout": 1500,
       "tolerance": 50,
       "icon": "https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/United_States.png"
     },
@@ -586,11 +541,8 @@ function main(config) {
       ...groupBaseOption,
       "name": "DE",
       "type": "url-test",
-      "proxies": [],
       "include-all": true,
       "filter": "德国|DE|🇩🇪",
-      "interval": 300000,
-      "timeout": 1500,
       "tolerance": 50,
       "icon": "https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Germany.png"
     },
@@ -598,11 +550,8 @@ function main(config) {
       ...groupBaseOption,
       "name": "SG",
       "type": "url-test",
-      "proxies": [],
       "include-all": true,
       "filter": "新加坡|SG|🇸🇬",
-      "interval": 300000,
-      "timeout": 1500,
       "tolerance": 50,
       "icon": "https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Singapore.png"
     },
@@ -610,11 +559,8 @@ function main(config) {
       ...groupBaseOption,
       "name": "FR",
       "type": "url-test",
-      "proxies": [],
       "include-all": true,
       "filter": "法国|FR|🇫🇷",
-      "interval": 300000,
-      "timeout": 1500,
       "tolerance": 50,
       "icon": "https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/France.png"
     },
@@ -622,11 +568,8 @@ function main(config) {
       ...groupBaseOption,
       "name": "UK",
       "type": "url-test",
-      "proxies": [],
       "include-all": true,
       "filter": "英国|GB|🇬🇧",
-      "interval": 300000,
-      "timeout": 1500,
       "tolerance": 50,
       "icon": "https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/United_Kingdom.png"
     }
