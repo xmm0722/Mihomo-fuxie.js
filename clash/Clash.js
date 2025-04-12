@@ -38,12 +38,6 @@ const ruleProviderCommon = {
 };
 // 规则集配置
 const ruleProviders = {
-  "Lan": {
-    ...ruleProviderCommon,
-    "behavior": "classical",
-    "url": "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Lan/Lan.yaml",
-    "path": "./ruleset/Lan.yaml"
-  },
   "Apple": {
     ...ruleProviderCommon,
     "behavior": "classical",
@@ -110,47 +104,17 @@ const ruleProviders = {
     "url": "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Microsoft/Microsoft.yaml",
     "path": "./ruleset/Microsoft.yaml"
   },
-  "LinkedIn": {
-    ...ruleProviderCommon,
-    "behavior": "classical",
-    "url": "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/LinkedIn/LinkedIn.yaml",
-    "path": "./ruleset/LinkedIn.yaml"
-  },
-  "Scholar": {
-    ...ruleProviderCommon,
-    "behavior": "classical",
-    "url": "https://cdn.jsdelivr.net/gh/LM-Firefly/Rules@9443f8126d70769b83b2594c42a157bbf779962c/Clash-RuleSet-Classical/PROXY/Scholar.yaml",
-    "path": "./ruleset/Scholar.yaml"
-  },
   "Twitter": {
     ...ruleProviderCommon,
     "behavior": "classical",
     "url": "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Twitter/Twitter.yaml",
     "path": "./ruleset/Twitter.yaml"
   },
-  "GameDownload": {
-    ...ruleProviderCommon,
-    "behavior": "classical",
-    "url": "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Game/GameDownload/GameDownload.yaml",
-    "path": "./ruleset/GameDownload.yaml"
-  },
-  "GameDownloadCN": {
-    ...ruleProviderCommon,
-    "behavior": "classical",
-    "url": "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Game/GameDownloadCN/GameDownloadCN.yaml",
-    "path": "./ruleset/GameDownloadCN.yaml"
-  },
   "Steam": {
     ...ruleProviderCommon,
     "behavior": "classical",
     "url": "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Steam/Steam.yaml",
     "path": "./ruleset/Steam.yaml"
-  },
-  "SteamCN": {
-    ...ruleProviderCommon,
-    "behavior": "classical",
-    "url": "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/SteamCN/SteamCN.yaml",
-    "path": "./ruleset/SteamCN.yaml"
   },
   "OneDrive": {
     ...ruleProviderCommon,
@@ -164,24 +128,6 @@ const ruleProviders = {
     "url": "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Emby/Emby.yaml",
     "path": "./ruleset/Emby.yaml"
   },
-  "HoYoverse": {
-    ...ruleProviderCommon,
-    "behavior": "classical",
-    "url": "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/HoYoverse/HoYoverse.yaml",
-    "path": "./ruleset/HoYoverse.yaml"
-  },
-  "GlobalMedia": {
-    ...ruleProviderCommon,
-    "behavior": "classical",
-    "url": "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/GlobalMedia/GlobalMedia_Classical.yaml",
-    "path": "./ruleset/GlobalMedia.yaml"
-  },
-  "ChinaMax": {
-    ...ruleProviderCommon,
-    "behavior": "classical",
-    "url": "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/ChinaMax/ChinaMax_Classical.yaml",
-    "path": "./ruleset/ChinaMax.yaml"
-  },
   "Gemini": {
     ...ruleProviderCommon,
     "behavior": "classical",
@@ -194,32 +140,16 @@ const ruleProviders = {
     "url": "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Claude/Claude.yaml",
     "path": "./ruleset/Claude.yaml"
   },
-  "Hijacking": {
-    ...ruleProviderCommon,
-    "behavior": "classical",
-    "url": "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Hijacking/Hijacking.yaml",
-    "path": "./ruleset/Lan.yaml"
-  },
   "Github": {
     ...ruleProviderCommon,
     "behavior": "classical",
     "url": "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/GitHub/GitHub_No_Resolve.yaml",
-    "path": "./ruleset/Lan.yaml"
+    "path": "./ruleset/Github.yaml"
   },
-  "Dns_Leak": {
-    ...ruleProviderCommon,
-    "behavior": "domain",
-    "format": "text",
-    "url": "https://cdn.jsdelivr.net/gh/xishang0128/rules@main/clash%20or%20stash/prevent_dns_leak/prevent_dns_leak_domain.list",
-    "path": "./ruleset/Dns_Leak.list"
-  },
-
 };
 // 规则
 const rules = [
   // 自定义规则
-  "RULE-SET,Dns_Leak,Proxy",
-  "RULE-SET,Lan,DIRECT",
   "RULE-SET,Telegram,Telegram",
   "RULE-SET,YouTube,YouTube",
   "RULE-SET,BiliBili,BiliBili",
@@ -230,23 +160,15 @@ const rules = [
   "RULE-SET,Google,Google",
   "RULE-SET,OpenAI,OpenAI",
   "RULE-SET,Microsoft,Microsoft",
-  "RULE-SET,LinkedIn,LinkedIn",
-  "RULE-SET,Scholar,Scholar",
   "RULE-SET,Twitter,Twitter",
-  "RULE-SET,GameDownload,OtherGame",
-  "RULE-SET,GameDownloadCN,OtherGame",
   "RULE-SET,Steam,Steam",
-  "RULE-SET,SteamCN,Steam",
   "RULE-SET,OneDrive,OneDrive",
   "RULE-SET,Emby,Emby",
-  "RULE-SET,HoYoverse,OtherGame",
-  "RULE-SET,GlobalMedia,GlobalMedia",
-  "RULE-SET,ChinaMax,DIRECT",
   "RULE-SET,Gemini,Gemini",
   "RULE-SET,Claude,Claude",
-  "RULE-SET,Hijacking,Hijacking",
   "RULE-SET,Github,Proxy",
-  "GEOIP,CN,China",
+  "GEOIP,LAN,DIRECT",
+  "GEOIP,CN,DIRECT",
   "MATCH,Proxy"
 ];
 // 代理组通用配置
@@ -417,39 +339,12 @@ function main(config) {
     },
     {
       ...groupBaseOption,
-      "name": "LinkedIn",
-      "type": "select",
-      "proxies": ["Proxy", "HK", "TW", "JP", "KR", "US", "DE", "SG", "FR", "DIRECT"],
-      "include-all": true,
-      "exclude-filter": "(?i)GB|Traffic|Expire|Premium|频道|订阅|ISP|流量|到期|重置",
-      "icon": "https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Blinkload.png"
-    },
-    {
-      ...groupBaseOption,
-      "name": "Scholar",
-      "type": "select",
-      "proxies": ["Proxy", "HK", "TW", "JP", "KR", "US", "DE", "SG", "FR", "DIRECT"],
-      "include-all": true,
-      "exclude-filter": "(?i)GB|Traffic|Expire|Premium|频道|订阅|ISP|流量|到期|重置",
-      "icon": "https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Scholar.png"
-    },
-    {
-      ...groupBaseOption,
       "name": "Twitter",
       "type": "select",
       "proxies": ["Proxy", "HK", "TW", "JP", "KR", "US", "DE", "SG", "FR", "DIRECT"],
       "include-all": true,
       "exclude-filter": "(?i)GB|Traffic|Expire|Premium|频道|订阅|ISP|流量|到期|重置",
       "icon": "https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Twitter.png"
-    },
-    {
-      ...groupBaseOption,
-      "name": "GlobalMedia",
-      "type": "select",
-      "proxies": ["Proxy", "HK", "TW", "JP", "KR", "US", "DE", "SG", "FR", "DIRECT"],
-      "include-all": true,
-      "exclude-filter": "(?i)GB|Traffic|Expire|Premium|频道|订阅|ISP|流量|到期|重置",
-      "icon": "https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Global.png"
     },
     {
       ...groupBaseOption,
@@ -468,31 +363,6 @@ function main(config) {
       "include-all": true,
       "exclude-filter": "(?i)GB|Traffic|Expire|Premium|频道|订阅|ISP|流量|到期|重置",
       "icon": "https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Steam.png"
-    },
-    {
-      ...groupBaseOption,
-      "name": "OtherGame",
-      "type": "select",
-      "proxies": ["DIRECT", "HK", "TW", "JP", "KR", "US", "DE", "SG", "FR", "Proxy"],
-      "include-all": true,
-      "exclude-filter": "(?i)GB|Traffic|Expire|Premium|频道|订阅|ISP|流量|到期|重置",
-      "icon": "https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Game.png"
-    },
-    {
-      ...groupBaseOption,
-      "name": "Hijacking",
-      "type": "select",
-      "proxies": ["Proxy", "HK", "TW", "JP", "KR", "US", "DE", "SG", "FR", "DIRECT"],
-      "include-all": true,
-      "exclude-filter": "(?i)GB|Traffic|Expire|Premium|频道|订阅|ISP|流量|到期|重置",
-      "icon": "https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Hijacking.png"
-    },
-    {
-      ...groupBaseOption,
-      "name": "China",
-      "type": "select",
-      "proxies": ["DIRECT"],
-      "icon": "https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/China.png"
     },
     {
       ...groupBaseOption,
@@ -572,6 +442,7 @@ function main(config) {
       "type": "url-test",
       "include-all": true,
       "filter": "英国|GB|🇬🇧",
+      "exclude-filter": "Traffic|Expire|Premium|频道|订阅|ISP|流量|到期|重置",
       "tolerance": 50,
       "icon": "https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/United_Kingdom.png"
     }
