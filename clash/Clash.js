@@ -11,7 +11,7 @@ const proxyProviders = {
     // 订阅 链接
     "url": "https://baidu.com",
     // 自动更新时间 21600(秒) / 3600 = 6小时
-    "interval": 21600,
+    "interval": 86400,
     // 节点文件 p1对应provider1
     "path": "./proxy_provider/p1.yaml",
     "override": {
@@ -22,7 +22,7 @@ const proxyProviders = {
   "p2": {
     "type": "http",
     "url": "https://google.com",
-    "interval": 21600,
+    "interval": 86400,
     "path": "./proxy_provider/p2.yaml",
     "override": {
       "additional-prefix": "p2 |"
