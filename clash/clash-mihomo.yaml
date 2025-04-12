@@ -40,7 +40,6 @@ proxy-groups:
   - name: AUTO
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Speedtest.png
     url: https://www.gstatic.com/generate_204
-    exclude-filter: (?i)GB|Traffic|Expire|Premium|频道|订阅|ISP|流量|到期|重置
     include-all: true
     type: url-test
     interval: 600
@@ -275,56 +274,8 @@ proxy-groups:
       - DE
       - SG
       - FR
-  - name: LinkedIn
-    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Blinkload.png
-    type: select
-    include-all: true
-    exclude-filter: (?i)GB|Traffic|Expire|Premium|频道|订阅|ISP|流量|到期|重置
-    proxies:
-      - Proxy
-      - HK
-      - TW
-      - JP
-      - KR
-      - US
-      - DE
-      - SG
-      - FR
-      - DIRECT
-  - name: Scholar
-    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Scholar.png
-    type: select
-    include-all: true
-    exclude-filter: (?i)GB|Traffic|Expire|Premium|频道|订阅|ISP|流量|到期|重置
-    proxies:
-      - Proxy
-      - HK
-      - TW
-      - JP
-      - KR
-      - US
-      - DE
-      - SG
-      - FR
-      - DIRECT
   - name: Twitter
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Twitter.png
-    type: select
-    include-all: true
-    exclude-filter: (?i)GB|Traffic|Expire|Premium|频道|订阅|ISP|流量|到期|重置
-    proxies:
-      - Proxy
-      - HK
-      - TW
-      - JP
-      - KR
-      - US
-      - DE
-      - SG
-      - FR
-      - DIRECT
-  - name: GlobalMedia
-    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Global.png
     type: select
     include-all: true
     exclude-filter: (?i)GB|Traffic|Expire|Premium|频道|订阅|ISP|流量|到期|重置
@@ -371,38 +322,6 @@ proxy-groups:
       - SG
       - FR
       - Proxy
-  - name: OtherGame
-    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Game.png
-    type: select
-    include-all: true
-    exclude-filter: (?i)GB|Traffic|Expire|Premium|频道|订阅|ISP|流量|到期|重置
-    proxies:
-      - DIRECT
-      - HK
-      - TW
-      - JP
-      - KR
-      - US
-      - DE
-      - SG
-      - FR
-      - Proxy
-  - name: Hijacking
-    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Hijacking.png
-    type: select
-    include-all: true
-    exclude-filter: (?i)GB|Traffic|Expire|Premium|频道|订阅|ISP|流量|到期|重置
-    proxies:
-      - Proxy
-      - HK
-      - TW
-      - JP
-      - KR
-      - US
-      - DE
-      - SG
-      - FR
-      - DIRECT
   - name: China
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/China.png
     type: select
@@ -480,6 +399,7 @@ proxy-groups:
     tolerance: 50
     include-all: true
     filter: 英国|GB|🇬🇧
+    exclude-filter: Traffic|Expire|Premium|频道|订阅|ISP|流量|到期|重置
 rule-providers:
   # AdBlock:
   #   url: https://raw.githubusercontent.com/REIJI007/AdBlock_Rule_For_Clash/master/adblock_reject.yaml
@@ -487,12 +407,6 @@ rule-providers:
   #   interval: 86400
   #   proxy: Proxy
   #   type: http
-  Lan:
-    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Lan/Lan.yaml
-    behavior: classical
-    interval: 86400
-    proxy: Proxy
-    type: http
   Apple:
     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Apple/Apple_Classical.yaml
     behavior: classical
@@ -559,44 +473,14 @@ rule-providers:
     interval: 86400
     proxy: Proxy
     type: http
-  LinkedIn:
-    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/LinkedIn/LinkedIn.yaml
-    behavior: classical
-    interval: 86400
-    proxy: Proxy
-    type: http
-  Scholar:
-    url: https://raw.githubusercontent.com/LM-Firefly/Rules/9443f8126d70769b83b2594c42a157bbf779962c/Clash-RuleSet-Classical/PROXY/Scholar.yaml
-    behavior: classical
-    interval: 86400
-    proxy: Proxy
-    type: http
   Twitter:
     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Twitter/Twitter.yaml
     behavior: classical
     interval: 86400
     proxy: Proxy
     type: http
-  GameDownload:
-    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Game/GameDownload/GameDownload.yaml
-    behavior: classical
-    interval: 86400
-    proxy: Proxy
-    type: http
-  GameDownloadCN:
-    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Game/GameDownloadCN/GameDownloadCN.yaml
-    behavior: classical
-    interval: 86400
-    proxy: Proxy
-    type: http
   Steam:
     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Steam/Steam.yaml
-    behavior: classical
-    interval: 86400
-    proxy: Proxy
-    type: http
-  SteamCN:
-    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/SteamCN/SteamCN.yaml
     behavior: classical
     interval: 86400
     proxy: Proxy
@@ -613,24 +497,6 @@ rule-providers:
     interval: 86400
     proxy: Proxy
     type: http
-  HoYoverse:
-    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/HoYoverse/HoYoverse.yaml
-    behavior: classical
-    interval: 86400
-    proxy: Proxy
-    type: http
-  GlobalMedia:
-    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/GlobalMedia/GlobalMedia_Classical.yaml
-    behavior: classical
-    interval: 86400
-    proxy: Proxy
-    type: http
-  ChinaMax:
-    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/ChinaMax/ChinaMax_Classical.yaml
-    behavior: classical
-    interval: 86400
-    proxy: Proxy
-    type: http
   Gemini:
     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Gemini/Gemini.yaml
     behavior: classical
@@ -643,29 +509,15 @@ rule-providers:
     interval: 86400
     proxy: Proxy
     type: http
-  Hijacking:
-    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Hijacking/Hijacking.yaml
-    behavior: classical
-    interval: 86400
-    proxy: Proxy
-    type: http
   Github:
     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/GitHub/GitHub_No_Resolve.yaml
     behavior: classical
     interval: 86400
     proxy: Proxy
     type: http
-  Dns_Leak:
-    url: https://raw.githubusercontent.com/xishang0128/rules/main/clash%20or%20stash/prevent_dns_leak/prevent_dns_leak_domain.list
-    behavior: domain
-    interval: 86400
-    format: text
-    proxy: Proxy
-    type: http
+
 rules:
-  - RULE-SET,Dns_Leak,Proxy
   # - RULE-SET,AdBlock,REJECT
-  - RULE-SET,Lan,DIRECT
   - RULE-SET,Telegram,Telegram
   - RULE-SET,YouTube,YouTube
   - RULE-SET,BiliBili,BiliBili
@@ -676,21 +528,13 @@ rules:
   - RULE-SET,Google,Google
   - RULE-SET,OpenAI,OpenAI
   - RULE-SET,Microsoft,Microsoft
-  - RULE-SET,LinkedIn,LinkedIn
-  - RULE-SET,Scholar,Scholar
   - RULE-SET,Twitter,Twitter
-  - RULE-SET,GameDownload,OtherGame
-  - RULE-SET,GameDownloadCN,OtherGame
   - RULE-SET,Steam,Steam
-  - RULE-SET,SteamCN,Steam
   - RULE-SET,OneDrive,OneDrive
   - RULE-SET,Emby,Emby
-  - RULE-SET,HoYoverse,OtherGame
-  - RULE-SET,GlobalMedia,GlobalMedia
-  - RULE-SET,ChinaMax,DIRECT
   - RULE-SET,Gemini,Gemini
   - RULE-SET,Claude,Claude
-  - RULE-SET,Hijacking,Hijacking
   - RULE-SET,Github,Proxy
+  - GEOIP,LAN,DIRECT
   - GEOIP,CN,China
   - MATCH,Proxy
