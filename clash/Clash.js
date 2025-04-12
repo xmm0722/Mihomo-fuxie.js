@@ -10,9 +10,8 @@ const proxyProviders = {
     "type": "http",
     // 订阅 链接
     "url": "https://baidu.com",
-    // 自动更新时间 21600(秒) / 3600 = 6小时
+    // 自动更新时间 86400(秒) / 3600 = 24小时
     "interval": 86400,
-    // 节点文件 p1对应provider1
     "override": {
       // 节点名称前缀 p1，用于区别机场节点
       "additional-prefix": "p1 |"

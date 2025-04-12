@@ -1,9 +1,10 @@
 # 备份自用的一些配置文件
 
 ```
-├── README.md
 ├── clash
-│   └── clash-mihomo.yaml   # mihomo part覆写的配置文件
-└── mac
-    └── install.sh  # 重装电脑之后运行的脚本
+│   ├── clash-mihomo.yaml   # mihomo part覆写的配置文件
+│   └── clash.js    # Clash Verge Rev 全局扩展脚本（懒人配置）/ Mihomo Party 覆写脚本
+├── mac
+│   └── install.sh
+└── README.md
 ```
