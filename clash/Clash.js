@@ -13,7 +13,6 @@ const proxyProviders = {
     // 自动更新时间 21600(秒) / 3600 = 6小时
     "interval": 86400,
     // 节点文件 p1对应provider1
-    // "path": "./proxy_provider/p1.yaml",
     "override": {
       // 节点名称前缀 p1，用于区别机场节点
       "additional-prefix": "p1 |"
@@ -23,7 +22,6 @@ const proxyProviders = {
     "type": "http",
     "url": "https://google.com",
     "interval": 86400,
-    // "path": "./proxy_provider/p2.yaml",
     "override": {
       "additional-prefix": "p2 |"
     }
