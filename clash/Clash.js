@@ -38,6 +38,7 @@ const groupBaseOption = {
   "max-failed-times": 3,
   "hidden": false
 };
+// 代理组规则
 const proxyGroupConfig = [
   {
     ...groupBaseOption,
@@ -458,7 +459,6 @@ function main(config) {
   config["bind-address"] = "*";
   config["ipv6"] = true;
   config["unified-delay"] = true;
-
   // 返回修改后的配置
   return config;
 }
