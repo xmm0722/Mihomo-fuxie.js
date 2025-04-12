@@ -17,6 +17,7 @@ const dnsConfig = {
   "enhanced-mode": "fake-ip",
   "fake-ip-range": "198.18.0.1/16",
   "use-hosts": true,
+  "use-system-hosts": false,
   "nameserver": ["1.1.1.1", "8.8.8.8"],
   "proxy-server-nameserver": ['https://doh.pub/dns-query'],
   "direct- nameserver": ['https://doh.pub/dns-query'],
