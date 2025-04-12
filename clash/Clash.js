@@ -175,7 +175,7 @@ const rules = [
 const groupBaseOption = {
   "interval": 300,
   "timeout": 3000,
-  "url": "https://www.google.com/generate_204",
+  "url": "https://www.gstatic.com/generate_204",
   "max-failed-times": 3,
   "hidden": false
 };
