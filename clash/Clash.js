@@ -85,8 +85,8 @@ const dnsConfig = {
   "use-system-hosts": false,
   "nameserver": ["https://1.1.1.1/dns-query", "https://dns.google/dns-query"],
   "proxy-server-nameserver": ['https://doh.pub/dns-query'],
-  "direct-nameserver": [],
-  "nameserver-policy": { "+.makima.online": ["119.29.29.29"], 'geosite:cn,private': ['https://doh.pub/dns-query', 'https://dns.alidns.com/dns-query'] },
+  "direct-nameserver": ['https://doh.pub/dns-query'],
+  "nameserver-policy": { 'geosite:cn,private': ['https://doh.pub/dns-query', 'https://dns.alidns.com/dns-query'] },
   "fallback": ['https://1.1.1.1/dns-query', 'https://dns.google/dns-query'],
   "fallback-filter": {
     "geoip": false,
