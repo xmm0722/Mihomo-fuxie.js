@@ -50,7 +50,7 @@ function main(config) {
   config["rule-providers"] = ruleProviders;
   config["rules"] = rules;
   //覆盖通用配置
-  config["mixed-port"] = "7890";
+  config["mixed-port"] = 7890;
   config["allow-lan"] = true;
   config["bind-address"] = "*";
   config["ipv6"] = true;
