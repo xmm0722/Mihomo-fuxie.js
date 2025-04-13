@@ -65,7 +65,6 @@ const dnsConfig = {
   "listen:": ":53",
   "prefer-h3": false,
   "respect-rules": true,
-  "default-nameserver": ["223.5.5.5", "119.29.29.29"],
   "enhanced-mode": "fake-ip",
   "fake-ip-range": "198.18.0.1/16",
   "fake-ip-filter": [
@@ -83,15 +82,10 @@ const dnsConfig = {
   ],
   "use-hosts": false,
   "use-system-hosts": false,
-  "nameserver": ["https://1.1.1.1/dns-query", "https://dns.google/dns-query"],
+  "nameserver": ["https://1.1.1.1/dns-query", "https://dns.google/dns-query"], // 默认的域名解析服务器
+  "default-nameserver": ["223.5.5.5", "119.29.29.29"],  //默认DNS 用于解析 DNS服务器 的域名
   "proxy-server-nameserver": ['https://doh.pub/dns-query'],
-  "direct-nameserver": ['https://doh.pub/dns-query'],
-  "nameserver-policy": { 'geosite:cn,private': ['https://doh.pub/dns-query', 'https://dns.alidns.com/dns-query'] },
-  "fallback": ['https://1.1.1.1/dns-query', 'https://dns.google/dns-query'],
-  "fallback-filter": {
-    "geoip": false,
-    "ipcidr": ["240.0.0.0/4", "0.0.0.0/32", "61.160.148.90/32", '3131:3131:3131:3131:3131:3131:3131:3131/128'],
-  },
+  "direct-nameserver": ['https://doh.pub/dns-query','https://dns.alidns.com/dns-query'],   //用于 direct 出口域名解析的 DNS 服务器
 };
 // 代理组通用配置
 const groupBaseOption = {
