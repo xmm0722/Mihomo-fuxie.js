@@ -35,6 +35,7 @@ proxy-groups:
       - DE
       - SG
       - FR
+      - UK
       - DIRECT
       - REJECT
   - name: AUTO
@@ -61,6 +62,7 @@ proxy-groups:
       - DE
       - SG
       - FR
+      - UK
       - REJECT
   - name: Telegram
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Telegram.png
@@ -77,6 +79,7 @@ proxy-groups:
       - DE
       - SG
       - FR
+      - UK
       - DIRECT
       - REJECT
   - name: YouTube
@@ -94,6 +97,7 @@ proxy-groups:
       - DE
       - SG
       - FR
+      - UK
       - DIRECT
       - REJECT
   - name: BiliBili
@@ -113,6 +117,7 @@ proxy-groups:
       - DE
       - SG
       - FR
+      - UK
   - name: OpenAI
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/ChatGPT.png
     type: select
@@ -128,6 +133,7 @@ proxy-groups:
       - DE
       - SG
       - FR
+      - UK
       - DIRECT
   - name: Gemini
     icon: https://raw.githubusercontent.com/guaishouxiaoqi/icons/master/Color/Gemini.png
@@ -144,6 +150,7 @@ proxy-groups:
       - DE
       - SG
       - FR
+      - UK
       - DIRECT
   - name: Claude
     icon: https://raw.githubusercontent.com/ke1ewang/Qi/master/Claude.png
@@ -160,6 +167,7 @@ proxy-groups:
       - DE
       - SG
       - FR
+      - UK
       - DIRECT
   - name: TikTok
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/TikTok.png
@@ -176,6 +184,7 @@ proxy-groups:
       - DE
       - SG
       - FR
+      - UK
       - DIRECT
   - name: Spotify
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Spotify.png
@@ -192,6 +201,7 @@ proxy-groups:
       - DE
       - SG
       - FR
+      - UK
       - DIRECT
   - name: Netflix
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Netflix.png
@@ -208,6 +218,7 @@ proxy-groups:
       - DE
       - SG
       - FR
+      - UK
       - DIRECT
   - name: Disney
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Disney.png
@@ -224,6 +235,7 @@ proxy-groups:
       - DE
       - SG
       - FR
+      - UK
       - DIRECT
   - name: Google
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Google.png
@@ -240,6 +252,7 @@ proxy-groups:
       - DE
       - SG
       - FR
+      - UK
       - DIRECT
   - name: OneDrive
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/OneDrive.png
@@ -257,6 +270,7 @@ proxy-groups:
       - DE
       - SG
       - FR
+      - UK
   - name: Microsoft
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Microsoft.png
     type: select
@@ -274,6 +288,7 @@ proxy-groups:
       - DE
       - SG
       - FR
+      - UK
   - name: Twitter
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Twitter.png
     type: select
@@ -289,6 +304,7 @@ proxy-groups:
       - DE
       - SG
       - FR
+      - UK
       - DIRECT
   - name: Emby
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Emby.png
@@ -305,6 +321,7 @@ proxy-groups:
       - DE
       - SG
       - FR
+      - UK
       - DIRECT
   - name: Steam
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Steam.png
@@ -321,12 +338,8 @@ proxy-groups:
       - DE
       - SG
       - FR
+      - UK
       - Proxy
-  - name: China
-    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/China.png
-    type: select
-    proxies:
-      - DIRECT
   - name: HK
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Hong_Kong.png
     type: url-test
@@ -536,5 +549,5 @@ rules:
   - RULE-SET,Claude,Claude
   - RULE-SET,Github,Proxy
   - GEOIP,LAN,DIRECT
-  - GEOIP,CN,China
+  - GEOIP,CN,DIRECT
   - MATCH,Proxy

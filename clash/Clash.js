@@ -101,7 +101,7 @@ const proxyGroupConfig = [
     ...groupBaseOption,
     "name": "Proxy",
     "type": "select",
-    "proxies": ["AUTO", "HK", "TW", "JP", "KR", "US", "DE", "SG", "FR", "DIRECT", "REJECT"],
+    "proxies": ["AUTO", "HK", "TW", "JP", "KR", "US", "DE", "SG", "FR", "UK", "DIRECT", "REJECT"],
     "include-all": true,
     "icon": "https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Global.png"
   },
@@ -117,7 +117,7 @@ const proxyGroupConfig = [
     ...groupBaseOption,
     "name": "Apple",
     "type": "select",
-    "proxies": ["DIRECT", "Proxy", "HK", "TW", "JP", "KR", "US", "DE", "SG", "FR", "REJECT"],
+    "proxies": ["DIRECT", "Proxy", "HK", "TW", "JP", "KR", "US", "DE", "SG", "FR", "UK", "REJECT"],
     "include-all": true,
     "exclude-filter": "(?i)GB|Traffic|Expire|Premium|频道|订阅|ISP|流量|到期|重置",
     "icon": "https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Apple.png"
@@ -126,7 +126,7 @@ const proxyGroupConfig = [
     ...groupBaseOption,
     "name": "Telegram",
     "type": "select",
-    "proxies": ["Proxy", "HK", "TW", "JP", "KR", "US", "DE", "SG", "FR", "DIRECT", "REJECT"],
+    "proxies": ["Proxy", "HK", "TW", "JP", "KR", "US", "DE", "SG", "FR", "UK", "DIRECT", "REJECT"],
     "include-all": true,
     "exclude-filter": "(?i)GB|Traffic|Expire|Premium|频道|订阅|ISP|流量|到期|重置",
     "icon": "https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Telegram.png"
@@ -135,7 +135,7 @@ const proxyGroupConfig = [
     ...groupBaseOption,
     "name": "YouTube",
     "type": "select",
-    "proxies": ["Proxy", "HK", "TW", "JP", "KR", "US", "DE", "SG", "FR", "DIRECT", "REJECT"],
+    "proxies": ["Proxy", "HK", "TW", "JP", "KR", "US", "DE", "SG", "FR", "UK", "DIRECT", "REJECT"],
     "include-all": true,
     "exclude-filter": "(?i)GB|Traffic|Expire|Premium|频道|订阅|ISP|流量|到期|重置",
     "icon": "https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/YouTube.png"
@@ -144,7 +144,7 @@ const proxyGroupConfig = [
     ...groupBaseOption,
     "name": "BiliBili",
     "type": "select",
-    "proxies": ["DIRECT", "Proxy", "REJECT", "HK", "TW", "JP", "KR", "US", "DE", "SG", "FR"],
+    "proxies": ["DIRECT", "Proxy", "REJECT", "HK", "TW", "JP", "KR", "US", "DE", "SG", "FR", "UK"],
     "include-all": true,
     "exclude-filter": "(?i)GB|Traffic|Expire|Premium|频道|订阅|ISP|流量|到期|重置",
     "icon": "https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/bilibili.png"
@@ -153,7 +153,7 @@ const proxyGroupConfig = [
     ...groupBaseOption,
     "name": "OpenAI",
     "type": "select",
-    "proxies": ["Proxy", "US", "TW", "JP", "KR", "HK", "DE", "SG", "FR", "DIRECT"],
+    "proxies": ["Proxy", "US", "TW", "JP", "KR", "HK", "DE", "SG", "FR", "UK", "DIRECT"],
     "include-all": true,
     "exclude-filter": "(?i)GB|Traffic|Expire|Premium|频道|订阅|ISP|流量|到期|重置",
     "icon": "https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/ChatGPT.png"
@@ -162,7 +162,7 @@ const proxyGroupConfig = [
     ...groupBaseOption,
     "name": "Gemini",
     "type": "select",
-    "proxies": ["Proxy", "HK", "TW", "JP", "KR", "US", "DE", "SG", "FR", "DIRECT"],
+    "proxies": ["Proxy", "HK", "TW", "JP", "KR", "US", "DE", "SG", "FR", "UK", "DIRECT"],
     "include-all": true,
     "exclude-filter": "(?i)GB|Traffic|Expire|Premium|频道|订阅|ISP|流量|到期|重置",
     "icon": "https://cdn.jsdelivr.net/gh/guaishouxiaoqi/icons@master/Color/Gemini.png"
@@ -171,7 +171,7 @@ const proxyGroupConfig = [
     ...groupBaseOption,
     "name": "Claude",
     "type": "select",
-    "proxies": ["Proxy", "US", "TW", "JP", "KR", "HK", "DE", "SG", "FR", "DIRECT"],
+    "proxies": ["Proxy", "US", "TW", "JP", "KR", "HK", "DE", "SG", "FR", "UK", "DIRECT"],
     "include-all": true,
     "exclude-filter": "(?i)GB|Traffic|Expire|Premium|频道|订阅|ISP|流量|到期|重置",
     "icon": "https://cdn.jsdelivr.net/gh/ke1ewang/Qi@master/Claude.png"
@@ -180,7 +180,7 @@ const proxyGroupConfig = [
     ...groupBaseOption,
     "name": "TikTok",
     "type": "select",
-    "proxies": ["TW", "Proxy", "HK", "JP", "KR", "US", "DE", "SG", "FR", "DIRECT"],
+    "proxies": ["TW", "Proxy", "HK", "JP", "KR", "US", "DE", "SG", "FR", "UK", "DIRECT"],
     "include-all": true,
     "exclude-filter": "(?i)GB|Traffic|Expire|Premium|频道|订阅|ISP|流量|到期|重置",
     "icon": "https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/TikTok.png"
@@ -189,7 +189,7 @@ const proxyGroupConfig = [
     ...groupBaseOption,
     "name": "Spotify",
     "type": "select",
-    "proxies": ["Proxy", "HK", "TW", "JP", "KR", "US", "DE", "SG", "FR", "DIRECT"],
+    "proxies": ["Proxy", "HK", "TW", "JP", "KR", "US", "DE", "SG", "FR", "UK", "DIRECT"],
     "include-all": true,
     "exclude-filter": "(?i)GB|Traffic|Expire|Premium|频道|订阅|ISP|流量|到期|重置",
     "icon": "https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Spotify.png"
@@ -198,7 +198,7 @@ const proxyGroupConfig = [
     ...groupBaseOption,
     "name": "Netflix",
     "type": "select",
-    "proxies": ["Proxy", "HK", "TW", "JP", "KR", "US", "DE", "SG", "FR", "DIRECT"],
+    "proxies": ["Proxy", "HK", "TW", "JP", "KR", "US", "DE", "SG", "FR", "UK", "DIRECT"],
     "include-all": true,
     "exclude-filter": "(?i)GB|Traffic|Expire|Premium|频道|订阅|ISP|流量|到期|重置",
     "icon": "https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Netflix.png"
@@ -207,7 +207,7 @@ const proxyGroupConfig = [
     ...groupBaseOption,
     "name": "Disney",
     "type": "select",
-    "proxies": ["Proxy", "HK", "TW", "JP", "KR", "US", "DE", "SG", "FR", "DIRECT"],
+    "proxies": ["Proxy", "HK", "TW", "JP", "KR", "US", "DE", "SG", "FR", "UK", "DIRECT"],
     "include-all": true,
     "exclude-filter": "(?i)GB|Traffic|Expire|Premium|频道|订阅|ISP|流量|到期|重置",
     "icon": "https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Disney.png"
@@ -216,7 +216,7 @@ const proxyGroupConfig = [
     ...groupBaseOption,
     "name": "Google",
     "type": "select",
-    "proxies": ["Proxy", "HK", "TW", "JP", "KR", "US", "DE", "SG", "FR", "DIRECT"],
+    "proxies": ["Proxy", "HK", "TW", "JP", "KR", "US", "DE", "SG", "FR", "UK", "DIRECT"],
     "include-all": true,
     "exclude-filter": "(?i)GB|Traffic|Expire|Premium|频道|订阅|ISP|流量|到期|重置",
     "icon": "https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Google.png"
@@ -225,7 +225,7 @@ const proxyGroupConfig = [
     ...groupBaseOption,
     "name": "OneDrive",
     "type": "select",
-    "proxies": ["DIRECT", "Proxy", "HK", "TW", "JP", "KR", "US", "DE", "SG", "FR"],
+    "proxies": ["DIRECT", "Proxy", "HK", "TW", "JP", "KR", "US", "DE", "SG", "FR", "UK"],
     "include-all": true,
     "exclude-filter": "(?i)GB|Traffic|Expire|Premium|频道|订阅|ISP|流量|到期|重置",
     "icon": "https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/OneDrive.png"
@@ -234,7 +234,7 @@ const proxyGroupConfig = [
     ...groupBaseOption,
     "name": "Microsoft",
     "type": "select",
-    "proxies": ["DIRECT", "Proxy", "REJECT", "HK", "TW", "JP", "KR", "US", "DE", "SG", "FR"],
+    "proxies": ["DIRECT", "Proxy", "REJECT", "HK", "TW", "JP", "KR", "US", "DE", "SG", "FR", "UK"],
     "include-all": true,
     "exclude-filter": "(?i)GB|Traffic|Expire|Premium|频道|订阅|ISP|流量|到期|重置",
     "icon": "https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Microsoft.png"
@@ -243,7 +243,7 @@ const proxyGroupConfig = [
     ...groupBaseOption,
     "name": "Twitter",
     "type": "select",
-    "proxies": ["Proxy", "HK", "TW", "JP", "KR", "US", "DE", "SG", "FR", "DIRECT"],
+    "proxies": ["Proxy", "HK", "TW", "JP", "KR", "US", "DE", "SG", "FR", "UK", "DIRECT"],
     "include-all": true,
     "exclude-filter": "(?i)GB|Traffic|Expire|Premium|频道|订阅|ISP|流量|到期|重置",
     "icon": "https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Twitter.png"
@@ -252,7 +252,7 @@ const proxyGroupConfig = [
     ...groupBaseOption,
     "name": "Emby",
     "type": "select",
-    "proxies": ["Proxy", "HK", "TW", "JP", "KR", "US", "DE", "SG", "FR", "DIRECT"],
+    "proxies": ["Proxy", "HK", "TW", "JP", "KR", "US", "DE", "SG", "FR", "UK", "DIRECT"],
     "include-all": true,
     "exclude-filter": "(?i)GB|Traffic|Expire|Premium|频道|订阅|ISP|流量|到期|重置",
     "icon": "https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Emby.png"
@@ -261,7 +261,7 @@ const proxyGroupConfig = [
     ...groupBaseOption,
     "name": "Steam",
     "type": "select",
-    "proxies": ["HK", "DIRECT", "TW", "JP", "KR", "US", "DE", "SG", "FR", "Proxy"],
+    "proxies": ["HK", "DIRECT", "TW", "JP", "KR", "US", "DE", "SG", "FR", "UK", "Proxy"],
     "include-all": true,
     "exclude-filter": "(?i)GB|Traffic|Expire|Premium|频道|订阅|ISP|流量|到期|重置",
     "icon": "https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Steam.png"
