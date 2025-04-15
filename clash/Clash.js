@@ -62,7 +62,7 @@ function main(config) {
 const dnsConfig = {
   "enable": true,
   "ipv6": true,
-  "listen:": ":53",
+  "listen": ":53",
   "prefer-h3": false,
   "respect-rules": true,
   "enhanced-mode": "fake-ip",
@@ -489,7 +489,7 @@ const rules = [
   "RULE-SET,Emby,Emby",
   "RULE-SET,Gemini,Gemini",
   "RULE-SET,Claude,Claude",
-  "RULE-SET,Github,Proxy",
+  "RULE-SET,Github,HK",
   "GEOIP,LAN,DIRECT",
   "GEOIP,CN,DIRECT",
   "MATCH,Proxy"
