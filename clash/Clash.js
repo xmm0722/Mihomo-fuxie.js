@@ -142,9 +142,9 @@ const proxyGroupConfig = [
   },
   {
     ...groupBaseOption,
-    "name": "BiliBili",
+    "name": "BiliBiliTW",
     "type": "select",
-    "proxies": ["DIRECT", "Proxy", "REJECT", "HK", "TW", "JP", "KR", "US", "DE", "SG", "FR", "UK"],
+    "proxies": ["Proxy", "DIRECT", "REJECT", "HK", "TW", "JP", "KR", "US", "DE", "SG", "FR", "UK"],
     "include-all": true,
     "exclude-filter": "(?i)GB|Traffic|Expire|Premium|频道|订阅|ISP|流量|到期|重置",
     "icon": "https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/bilibili.png"
@@ -378,11 +378,11 @@ const ruleProviders = {
     "url": "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/YouTube/YouTube.yaml",
     "path": "./ruleset/YouTube.yaml"
   },
-  "BiliBili": {
+  "BiliBiliTW": {
     ...ruleProviderCommon,
     "behavior": "classical",
-    "url": "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/BiliBili/BiliBili.yaml",
-    "path": "./ruleset/BiliBili.yaml"
+    "url": "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/BiliBiliIntl/BiliBiliIntl.yaml",
+    "path": "./ruleset/BiliBiliTW.yaml"
   },
   "TikTok": {
     ...ruleProviderCommon,
@@ -475,7 +475,7 @@ const rules = [
   // 自定义规则
   "RULE-SET,Telegram,Telegram",
   "RULE-SET,YouTube,YouTube",
-  "RULE-SET,BiliBili,BiliBili",
+  "RULE-SET,BiliBiliTW,BiliBiliTW",
   "RULE-SET,TikTok,TikTok",
   "RULE-SET,Spotify,Spotify",
   "RULE-SET,Netflix,Netflix",
