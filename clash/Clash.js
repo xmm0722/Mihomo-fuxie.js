@@ -83,7 +83,7 @@ const dnsConfig = {
   "use-hosts": false,
   "use-system-hosts": false,
   "nameserver": ["https://1.1.1.1/dns-query", "https://dns.google/dns-query"], // 默认的域名解析服务器
-  "default-nameserver": ["223.5.5.5", "119.29.29.29"],  //默认DNS 用于解析 DNS服务器 的域名
+  "default-nameserver": ["tls://223.5.5.5", "tls://119.29.29.29"],  //默认DNS 用于解析 DNS服务器 的域名
   "proxy-server-nameserver": ['https://doh.pub/dns-query'],
   "direct-nameserver": ['https://doh.pub/dns-query','https://dns.alidns.com/dns-query'],   //用于 direct 出口域名解析的 DNS 服务器
 };
@@ -180,7 +180,7 @@ const proxyGroupConfig = [
     ...groupBaseOption,
     "name": "TikTok",
     "type": "select",
-    "proxies": ["TW", "Proxy", "HK", "JP", "KR", "US", "DE", "SG", "FR", "UK", "DIRECT"],
+    "proxies": ["Proxy", "TW", "HK", "JP", "KR", "US", "DE", "SG", "FR", "UK", "DIRECT"],
     "include-all": true,
     "exclude-filter": "(?i)GB|Traffic|Expire|Premium|频道|订阅|ISP|流量|到期|重置",
     "icon": "https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/TikTok.png"
@@ -261,7 +261,7 @@ const proxyGroupConfig = [
     ...groupBaseOption,
     "name": "Steam",
     "type": "select",
-    "proxies": ["HK", "DIRECT", "TW", "JP", "KR", "US", "DE", "SG", "FR", "UK", "Proxy"],
+    "proxies": ["Proxy", "HK", "DIRECT", "TW", "JP", "KR", "US", "DE", "SG", "FR", "UK"],
     "include-all": true,
     "exclude-filter": "(?i)GB|Traffic|Expire|Premium|频道|订阅|ISP|流量|到期|重置",
     "icon": "https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Steam.png"
