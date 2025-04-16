@@ -1,8 +1,34 @@
 /***
+ * 修改自dahaha-365大佬的脚本，细微改动，修复dns泄露
  * Clash Verge Rev 全局扩展脚本（懒人配置）/ Mihomo Party 覆写脚本
  * URL: https://github.com/dahaha-365/YaNet/
  */
 
+
+/***
+ * 多订阅合并，只需要将非当前订阅的链接粘贴至url内即可
+ */
+const proxyProviders = {
+    "p1": {
+      "type": "http",
+      // 订阅 链接
+      "url": "https://al121.cc/#/register?code=R7vdKxbE",
+      // 自动更新时间 86400(秒) / 3600 = 24小时
+      "interval": 86400,
+      "override": {
+        // 节点名称前缀 p1，用于区别机场节点
+        "additional-prefix": "p1 |"
+      }
+    },
+    "p2": {
+      "type": "http",
+      "url": "https://al121.cc/#/register?code=R7vdKxbE",
+      "interval": 86400,
+      "override": {
+        "additional-prefix": "p2 |"
+      }
+    },
+  }
 /**
  * 整个脚本的总开关，在Mihomo Party使用的话，请保持为true
  * true = 启用
@@ -182,18 +208,24 @@ const ruleProviders = new Map()
 const rules = [
     'GEOIP,LAN,DIRECT',
     'GEOIP,CN,DIRECT',
+    'MATCH,默认节点',
 ]
 
 // 程序入口
 function main(config) {
-    const proxyCount = config?.proxies?.length ?? 0
-    const proxyProviderCount =
-        typeof config?.['proxy-providers'] === 'object'
-            ? Object.keys(config['proxy-providers']).length
-            : 0
+    const proxyCount = config?.proxies?.length ?? 0;
+    const originalProviders = config?.["proxy-providers"] || {};
+    const proxyProviderCount = typeof originalProviders === "object" ? Object.keys(originalProviders).length : 0;
+  
     if (proxyCount === 0 && proxyProviderCount === 0) {
-        throw new Error('配置文件中未找到任何代理')
+      throw new Error("配置文件中未找到任何代理");
     }
+  
+    // 合并而非覆盖
+    config["proxy-providers"] = {
+      ...originalProviders,  // 保留原有配置
+      ...proxyProviders       // 合并新配置（同名则覆盖）
+    };
 
     let regionProxyGroups = []
     let otherProxyGroups = config.proxies.map((b) => {
@@ -359,7 +391,7 @@ function main(config) {
             behavior: 'classical',
             format: 'text',
             url: 'https://github.com/dahaha-365/YaNet/raw/refs/heads/dist/rulesets/mihomo/ai.list',
-            path: './ruleset/YaNet/ai.list',
+            path: './ruleset/ai.list',
         })
         config['proxy-groups'].push({
             ...groupBaseOption,
@@ -451,6 +483,7 @@ function main(config) {
             ...ruleProviderCommon,
             "behavior": "classical",
             "url": "https://testingcf.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Netflix/Netflix.yaml",
+            "path": "./ruleset/Netflix.yaml"
         })
         config['proxy-groups'].push({
             ...groupBaseOption,
@@ -468,6 +501,7 @@ function main(config) {
             ...ruleProviderCommon,
             "behavior": "classical",
             "url": "https://testingcf.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/TikTok/TikTok.yaml",
+            "path": "./ruleset/TikTok.yaml"
         })
         config['proxy-groups'].push({
             ...groupBaseOption,
@@ -643,9 +677,21 @@ function main(config) {
 
     if (ruleOptions.Games) {
         rules.push(
-            'GEOSITE,category-games@cn,国内网站',
-            'GEOSITE,category-games,游戏专用'
+            'RULE-SET,SteamCN,国内网站',
+            'RULE-SET,Steam,游戏专用'
         )
+        ruleProviders.set("Steam", {
+            ...ruleProviderCommon,
+            "behavior": "classical",
+            "url": "https://testingcf.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Steam/Steam.yaml",
+            "path": "./ruleset/Steam.yaml"
+        })
+        ruleProviders.set("SteamCN", {
+            ...ruleProviderCommon,
+            "behavior": "classical",
+            "url": "https://testingcf.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/SteamCN/SteamCN.yaml",
+            "path": "./ruleset/SteamCN.yaml"
+        })
         config['proxy-groups'].push({
             ...groupBaseOption,
             name: '游戏专用',
