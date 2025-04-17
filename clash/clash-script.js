@@ -55,7 +55,7 @@ const ruleOptions = {
     TikTok: true, // 国际版抖音
     Disney: true, // 迪士尼
     Pixiv: true, // Pixiv
-    hbo: true, // HBO
+    HBO: true, // HBO
     Biliintl: true, // 哔哩哔哩东南亚
     TVB: true, // TVB
     Hulu: true, // Hulu
@@ -64,8 +64,8 @@ const ruleOptions = {
     Line: true, // Line通讯软件
     WhatsApp: true, // Whatsapp
     Games: true, // 游戏策略组
-    tracker: true, // 网络分析和跟踪服务
-    ads: true, // 常见的网络广告
+    Tracker: true, // 网络分析和跟踪服务
+    ADS: true, // 常见的网络广告
 }
 
 /**
@@ -549,9 +549,9 @@ function main(config) {
         })
     }
 
-    if (ruleOptions.hbo) {
-        rules.push('RULE-SET,hbo,HBO')
-        ruleProviders.set("hbo", {
+    if (ruleOptions.HBO) {
+        rules.push('RULE-SET,HBO,HBO')
+        ruleProviders.set("HBO", {
             ...ruleProviderCommon,
             "behavior": "classical",
             "url": "https://testingcf.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/HBO/HBO.yaml",
@@ -701,9 +701,9 @@ function main(config) {
         })
     }
 
-    if (ruleOptions.tracker) {
-        rules.push('RULE-SET,tracker,跟踪分析')
-        ruleProviders.set("tracker", {
+    if (ruleOptions.Tracker) {
+        rules.push('RULE-SET,Tracker,跟踪分析')
+        ruleProviders.set("Tracker", {
             ...ruleProviderCommon,
             "behavior": "classical",
             "url": "https://testingcf.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/PrivateTracker/PrivateTracker.yaml",
@@ -718,8 +718,15 @@ function main(config) {
         })
     }
 
-    if (ruleOptions.ads) {
-        rules.push('GEOSITE,category-ads-all,广告过滤')
+    if (ruleOptions.ADS) {
+        rules.push('RULE-SET,AdBlock,广告过滤')
+        ruleProviders.set("AdBlock", {
+            ...ruleProviderCommon,
+            "behavior": "domain",
+            "format":"mrs",
+            "url": "https://testingcf.jsdelivr.net/gh/REIJI007/AdBlock_Rule_For_Clash@master/adblock_reject.mrs",
+            "path": "./ruleset/AdBlock.mrs"
+        })
         config['proxy-groups'].push({
             ...groupBaseOption,
             name: '广告过滤',
