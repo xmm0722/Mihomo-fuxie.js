@@ -208,7 +208,6 @@ const ruleProviders = new Map()
 const rules = [
     'GEOIP,LAN,DIRECT',
     'GEOIP,CN,DIRECT',
-    'MATCH,默认节点',
 ]
 
 // 程序入口
@@ -380,8 +379,17 @@ function main(config) {
         type: 'direct',
         udp: true,
     })
-    
 
+    rules.push(
+        'RULE-SET,China_Classical,DIRECT',
+    )
+    ruleProviders.set('China_Classical', {
+        ...ruleProviderCommon,
+        behavior: 'classical',
+        format: 'yaml',
+        url: 'https://testingcf.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/China/China_Classical.yaml',
+        path: './ruleset/China_Classical.yaml',
+    })
     if (ruleOptions.Openai) {
         rules.push(
             'RULE-SET,OpenAI,OpenAI',
@@ -806,6 +814,7 @@ function main(config) {
             icon: 'https://testingcf.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/GitHub.png',
         })
     }
+    rules.push('MATCH,默认节点')
     config['proxy-groups'].push(
         {
             ...groupBaseOption,
