@@ -473,6 +473,14 @@ const ruleProviders = {
 // 规则
 const rules = [
   // 自定义规则
+  'GEOIP,LAN,DIRECT',
+  'GEOIP,CN,DIRECT',
+  'DOMAIN-SUFFIX,yunaq.com,DIRECT',
+  'DOMAIN-SUFFIX,jiashule.com,DIRECT',
+  'DOMAIN-SUFFIX,linux.do,DIRECT',
+  'DOMAIN-SUFFIX,deepseek.com,DIRECT',
+  'DOMAIN-SUFFIX,volces.com,DIRECT',
+  'DOMAIN-SUFFIX,portal101.cn,DIRECT',
   "RULE-SET,Telegram,Telegram",
   "RULE-SET,YouTube,YouTube",
   "RULE-SET,BiliBili,BiliBili",
@@ -490,7 +498,5 @@ const rules = [
   "RULE-SET,Gemini,Gemini",
   "RULE-SET,Claude,Claude",
   "RULE-SET,Github,HK",
-  "GEOIP,LAN,DIRECT",
-  "GEOIP,CN,DIRECT",
   "MATCH,Proxy"
 ];
