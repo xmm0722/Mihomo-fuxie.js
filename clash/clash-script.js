@@ -8,27 +8,28 @@
 /***
  * 多订阅合并，只需要将非当前订阅的链接粘贴至url内即可
  */
+const providersOptions = {
+    "type": "http",
+    "interval": 86400,
+}
 const proxyProviders = {
     "p1": {
-      "type": "http",
-      // 订阅 链接
-      "url": "https://al121.cc/#/register?code=R7vdKxbE",
-      // 自动更新时间 86400(秒) / 3600 = 24小时
-      "interval": 86400,
-      "override": {
-        // 节点名称前缀 p1，用于区别机场节点
-        "additional-prefix": "p1 |"
-      }
+        ...providersOptions,
+        // 订阅 链接
+        "url": "https://al121.cc/#/register?code=R7vdKxbE",
+        "override": {
+            // 节点名称前缀 p1，用于区别机场节点
+            "additional-prefix": "p1 |"
+        }
     },
     "p2": {
-      "type": "http",
-      "url": "https://al121.cc/#/register?code=R7vdKxbE",
-      "interval": 86400,
-      "override": {
-        "additional-prefix": "p2 |"
-      }
+        ...providersOptions,
+        "url": "https://al121.cc/#/register?code=R7vdKxbE",
+        "override": {
+            "additional-prefix": "p2 |"
+        }
     },
-  }
+}
 /**
  * 整个脚本的总开关，在Mihomo Party使用的话，请保持为true
  * true = 启用
@@ -178,11 +179,11 @@ const dnsConfig = {
         'localhost.sec.qq.com',
         // 微信快速登录检测失败
         'localhost.work.weixin.qq.com'
-      ],
+    ],
     'default-nameserver': [...chinaDNS],
     'nameserver': [...foreignDNS],
     'proxy-server-nameserver': ['https://doh.pub/dns-query'],
-    'direct-nameserver': ['https://doh.pub/dns-query','https://dns.alidns.com/dns-query'],   //用于 direct 出口域名解析的 DNS 服务器
+    'direct-nameserver': ['https://doh.pub/dns-query', 'https://dns.alidns.com/dns-query'],   //用于 direct 出口域名解析的 DNS 服务器
 }
 
 // 规则集通用配置
@@ -208,6 +209,12 @@ const ruleProviders = new Map()
 const rules = [
     'GEOIP,LAN,DIRECT',
     'GEOIP,CN,DIRECT',
+    'DOMAIN-SUFFIX,yunaq.com,DIRECT',
+    'DOMAIN-SUFFIX,jiashule.com,DIRECT',
+    'DOMAIN-SUFFIX,linux.do,DIRECT',
+    'DOMAIN-SUFFIX,deepseek.com,DIRECT',
+    'DOMAIN-SUFFIX,volces.com,DIRECT',
+    'DOMAIN-SUFFIX,portal101.cn,DIRECT',
 ]
 
 // 程序入口
@@ -215,15 +222,15 @@ function main(config) {
     const proxyCount = config?.proxies?.length ?? 0;
     const originalProviders = config?.["proxy-providers"] || {};
     const proxyProviderCount = typeof originalProviders === "object" ? Object.keys(originalProviders).length : 0;
-  
+
     if (proxyCount === 0 && proxyProviderCount === 0) {
-      throw new Error("配置文件中未找到任何代理");
+        throw new Error("配置文件中未找到任何代理");
     }
-  
+
     // 合并而非覆盖
     config["proxy-providers"] = {
-      ...originalProviders,  // 保留原有配置
-      ...proxyProviders       // 合并新配置（同名则覆盖）
+        ...originalProviders,  // 保留原有配置
+        ...proxyProviders       // 合并新配置（同名则覆盖）
     };
 
     let regionProxyGroups = []
@@ -379,17 +386,17 @@ function main(config) {
         type: 'direct',
         udp: true,
     })
-
-    rules.push(
-        'RULE-SET,China_Classical,DIRECT',
-    )
-    ruleProviders.set('China_Classical', {
-        ...ruleProviderCommon,
-        behavior: 'classical',
-        format: 'yaml',
-        url: 'https://testingcf.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/China/China_Classical.yaml',
-        path: './ruleset/China_Classical.yaml',
-    })
+    // 国内域名，暂时不开启
+    // rules.push(
+    //     'RULE-SET,China_Classical,DIRECT',
+    // )
+    // ruleProviders.set('China_Classical', {
+    //     ...ruleProviderCommon,
+    //     behavior: 'classical',
+    //     format: 'yaml',
+    //     url: 'https://testingcf.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/China/China_Classical.yaml',
+    //     path: './ruleset/China_Classical.yaml',
+    // })
     if (ruleOptions.Openai) {
         rules.push(
             'RULE-SET,OpenAI,OpenAI',
@@ -431,7 +438,7 @@ function main(config) {
 
     if (ruleOptions.Biliintl) {
         rules.push('RULE-SET,biliintl,哔哩哔哩东南亚')
-        ruleProviders.set("biliintl",{
+        ruleProviders.set("biliintl", {
             ...ruleProviderCommon,
             "behavior": "classical",
             "url": "https://testingcf.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/BiliBiliIntl/BiliBiliIntl.yaml",
@@ -449,7 +456,7 @@ function main(config) {
 
     if (ruleOptions.Bahamut) {
         rules.push('RULE-SET,bahamut,巴哈姆特')
-        ruleProviders.set("bahamut",{
+        ruleProviders.set("bahamut", {
             ...ruleProviderCommon,
             "behavior": "classical",
             "url": "https://testingcf.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Bahamut/Bahamut.yaml",
@@ -731,7 +738,7 @@ function main(config) {
         ruleProviders.set("AdBlock", {
             ...ruleProviderCommon,
             "behavior": "domain",
-            "format":"mrs",
+            "format": "mrs",
             "url": "https://testingcf.jsdelivr.net/gh/REIJI007/AdBlock_Rule_For_Clash@master/adblock_reject.mrs",
             "path": "./ruleset/AdBlock.mrs"
         })
