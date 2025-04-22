@@ -19,14 +19,14 @@ const proxyProviders = {
         "url": "https://al121.cc/#/register?code=R7vdKxbE",
         "override": {
             // 节点名称前缀 p1，用于区别机场节点
-            "additional-prefix": "p1 |"
+            "additional-prefix": "p1 | "
         }
     },
     "p2": {
         ...providersOptions,
         "url": "https://al121.cc/#/register?code=R7vdKxbE",
         "override": {
-            "additional-prefix": "p2 |"
+            "additional-prefix": "p2 | "
         }
     },
 }
@@ -80,67 +80,67 @@ const regionOptions = {
     regions: [
         {
             name: 'HK香港',
-            regex: /港|🇭🇰|hk|hongkong|hong kong/i,
+            regex: '香港|🇭🇰|HK|hongkong|hong kong',
             ratioLimit: 2,
             icon: 'https://testingcf.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Hong_Kong.png',
         },
         {
             name: 'US美国',
-            regex: /美|🇺🇸|us|united state|america/i,
+            regex: '美国|🇺🇸|US|united state|america',
             ratioLimit: 2,
             icon: 'https://testingcf.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/United_States.png',
         },
         {
             name: 'JP日本',
-            regex: /日本|🇯🇵|jp|japan/i,
+            regex: '日本|🇯🇵|JP|japan',
             ratioLimit: 2,
             icon: 'https://testingcf.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Japan.png',
         },
         {
             name: 'KR韩国',
-            regex: /韩|🇰🇷|kr|korea/i,
+            regex: '韩国|🇰🇷|KR|korea',
             ratioLimit: 2,
             icon: 'https://testingcf.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Korea.png',
         },
         {
             name: 'SG新加坡',
-            regex: /新加坡|🇸🇬|sg|singapore/i,
+            regex: '新加坡|🇸🇬|SG|singapore',
             ratioLimit: 2,
             icon: 'https://testingcf.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Singapore.png',
         },
         {
             name: 'CN中国大陆',
-            regex: /中国|🇨🇳|cn|china/i,
+            regex: '中国|🇨🇳|CN|china',
             ratioLimit: 2,
             icon: 'https://testingcf.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/China_Map.png',
         },
         {
             name: 'TW台湾省',
-            regex: /台湾|🇹🇼|tw|taiwan|tai wan/i,
+            regex: '台湾|🇹🇼|TW|taiwan|tai wan',
             ratioLimit: 2,
             icon: 'https://testingcf.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/China.png',
         },
         {
             name: 'GB英国',
-            regex: /英|🇬🇧|uk|united kingdom|great britain/i,
+            regex: '英国|🇬🇧|UK|united kingdom|great britain',
             ratioLimit: 2,
             icon: 'https://testingcf.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/United_Kingdom.png',
         },
         {
             name: 'DE德国',
-            regex: /德国|🇩🇪|de|germany/i,
+            regex: '德国|🇩🇪|DE|germany',
             ratioLimit: 2,
             icon: 'https://testingcf.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Germany.png',
         },
         {
             name: 'MY马来西亚',
-            regex: /马来|🇩🇪|my|malaysia/i,
+            regex: '马来西亚|🇲🇾|MYS|malaysia',
             ratioLimit: 2,
             icon: 'https://testingcf.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Malaysia.png',
         },
         {
             name: 'TK土耳其',
-            regex: /土耳其|🇹🇷|tk|turkey/i,
+            regex: '土耳其|🇹🇷|TK|turkey',
             ratioLimit: 2,
             icon: 'https://testingcf.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Turkey.png',
         },
@@ -322,25 +322,7 @@ function main(config) {
     }
 
     regionOptions.regions.forEach((region) => {
-        /**
-         * 提取倍率符合要求的代理节点
-         * 判断倍率有问题的话，大概率是这个正则的问题，可以自行修改
-         * 自己改正则的话记得必须把倍率的number值提取出来
-         */
-        let proxies = config.proxies
-            .filter((a) => {
-                const multiplier =
-                    /(?<=[xX✕✖⨉倍率])([1-9]+(\.\d+)*|0{1}\.\d+)(?=[xX✕✖⨉倍率])*/i.exec(
-                        a.name
-                    )?.[1]
-                return (
-                    a.name.match(region.regex) &&
-                    parseFloat(multiplier || '0') <= region.ratioLimit
-                )
-            })
-            .map((b) => {
-                return b.name
-            })
+
 
         /**
          * 必须再判断一下有没有符合要求的代理节点
@@ -354,7 +336,9 @@ function main(config) {
                 type: 'url-test',
                 tolerance: 50,
                 icon: region.icon,
-                proxies: proxies,
+                "include-all": true,
+                proxies: config.proxies,
+                filter: "香港|🇭🇰"
             })
         }
 

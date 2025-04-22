@@ -481,6 +481,7 @@ const rules = [
   'DOMAIN-SUFFIX,deepseek.com,DIRECT',
   'DOMAIN-SUFFIX,volces.com,DIRECT',
   'DOMAIN-SUFFIX,portal101.cn,DIRECT',
+  'DOMAIN-SUFFIX,ephone.ai,DIRECT',
   "RULE-SET,Telegram,Telegram",
   "RULE-SET,YouTube,YouTube",
   "RULE-SET,BiliBili,BiliBili",
