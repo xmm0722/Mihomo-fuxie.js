@@ -473,7 +473,7 @@ const ruleProviders = {
 // 规则
 const rules = [
   // 自定义规则
-  'GEOIP,LAN,DIRECT',
+  'GEOIP,private,DIRECT',
   'GEOIP,CN,DIRECT',
   'DOMAIN-SUFFIX,yunaq.com,DIRECT',
   'DOMAIN-SUFFIX,jiashule.com,DIRECT',

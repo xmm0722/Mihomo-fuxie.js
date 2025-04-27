@@ -207,7 +207,7 @@ const ruleProviders = new Map()
 
 
 const rules = [
-    'GEOIP,LAN,DIRECT',
+    'GEOIP,private,DIRECT',
     'GEOIP,CN,DIRECT',
     'DOMAIN-SUFFIX,yunaq.com,DIRECT',
     'DOMAIN-SUFFIX,jiashule.com,DIRECT',

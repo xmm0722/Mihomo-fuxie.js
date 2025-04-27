@@ -184,7 +184,7 @@ rule-providers:
 
 rules:
   # 额外添加的规则
-  - GEOIP,LAN,DIRECT
+  - GEOIP,private,DIRECT
   - DOMAIN-SUFFIX,yunaq.com,DIRECT
   - DOMAIN-SUFFIX,jiashule.com,DIRECT
   - DOMAIN-SUFFIX,linux.do,DIRECT
