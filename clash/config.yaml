@@ -17,12 +17,14 @@ proxy-providers:
 
 # 通用配置
 mode: rule
+ipv6: true
 mixed-port: 7890
 allow-lan: true
+bind-address: '*'
 log-level: warning
-ipv6: true
 unified-delay: true
 find-process-mode: strict
+# 规则选择缓存
 profile:
   store-selected: true
   store-fake-ip: true
@@ -33,7 +35,6 @@ keep-alive-interval: 1800
 dns:
   enable: true
   ipv6: false
-  bind-address: '*'
   prefer-h3: false
   use-hosts: false
   use-system-hosts: false
@@ -41,24 +42,24 @@ dns:
   enhanced-mode: fake-ip
   fake-ip-range: 198.18.0.1/16
   fake-ip-filter:
-  - +.lan
-  - +.local
-  - +.msftconnecttest.com
-  - +.msftncsi.com
-  - localhost.ptlogin2.qq.com
-  - localhost.sec.qq.com
-  - localhost.work.weixin.qq.com
+    - +.lan
+    - +.local
+    - +.msftconnecttest.com
+    - +.msftncsi.com
+    - localhost.ptlogin2.qq.com
+    - localhost.sec.qq.com
+    - localhost.work.weixin.qq.com
   default-nameserver:
-  - tls://223.5.5.5
-  - tls://119.29.29.29
+    - tls://223.5.5.5
+    - tls://119.29.29.29
   nameserver:
-  - https://1.1.1.1/dns-query
-  - https://dns.google/dns-query
+    - https://1.1.1.1/dns-query
+    - https://dns.google/dns-query
   proxy-server-nameserver:
-  - https://doh.pub/dns-query
+    - https://doh.pub/dns-query
   direct-nameserver:
-  - https://doh.pub/dns-query
-  - https://dns.alidns.com/dns-query
+    - https://doh.pub/dns-query
+    - https://dns.alidns.com/dns-query
 
 
 # geo配置
@@ -68,11 +69,11 @@ geo-update-interval: 24
 geodata-loader: memconservative
 geox-url:
   geoip: https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/geoip-lite.dat
-  # geosite: https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/geosite.dat
-  # mmdb: https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/country-lite.mmdb
-  # asn: https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/GeoLite2-ASN.mmdb
+  geosite: https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/geosite.dat
+  mmdb: https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/country-lite.mmdb
+  asn: https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/GeoLite2-ASN.mmdb
 
-
+# 时钟
 ntp:
   enable: true
   write-to-system: false
@@ -97,31 +98,32 @@ sniffer:
   sniff:
     TLS:
       ports:
-      - 443
-      - 8443
+        - 443
+        - 8443
     HTTP:
       ports:
-      - 80
-      - 8080-8880
+        - 80
+        - 8080-8880
     QUIC:
       ports:
-      - 443
-      - 8443
+        - 443
+        - 8443
   force-domain: []
   skip-domain:
-  - +.oray.com
+    - +.oray.com
 
 # 面板设置
-external-controller: 127.0.0.1:9090
+external-controller: 0.0.0.0:9090
 secret: ""
 external-ui: "./ui"
 external-ui-name: metacubexd
 external-ui-url: "https://github.com/MetaCubeX/metacubexd/archive/refs/heads/gh-pages.zip"
 
 # 代理组锚点
-SelectProxy: &SelectProxy { type: select, include-all: true, proxies: [ Proxy, HK, TW, JP, KR, US, DE, SG, FR, UK, DIRECT, REJECT ] }
-SelectHK: &SelectHK { type: select, include-all: true, proxies: [ HK, TW, JP, KR, US, DE, SG, FR, UK, DIRECT, REJECT ] }
-SelectTW: &SelectTW { type: select, include-all: true, proxies: [ TW, Proxy, HK, JP, KR, US, DE, SG, FR, UK, DIRECT, REJECT ] }
+SelectHK: &SelectHK { type: select, include-all: true, proxies: [ 香港, 台湾, 日本, 韩国, 美国, 德国, 新加坡, 法国, 英国, DIRECT, REJECT ] }
+SelectTW: &SelectTW { type: select, include-all: true, proxies: [ 台湾, Proxy, 香港, 日本, 韩国, 美国, 德国, 新加坡, 法国, 英国, DIRECT, REJECT ] }
+SelectProxy: &SelectProxy { type: select, include-all: true, proxies: [ Proxy, 香港, 台湾, 日本, 韩国, 美国, 德国, 新加坡, 法国, 英国, DIRECT, REJECT ] }
+SelectDirect: &SelectDirect { type: select, include-all: true, proxies: [ DIRECT, Proxy, 香港, 台湾, 日本, 韩国, 美国, 德国, 新加坡, 法国, 英国, REJECT ] }
 UrlTest: &UrlTest { type: url-test, interval: 60, tolerance: 20, lazy: true, url: 'https://www.gstatic.com/generate_204', disable-udp: false, timeout: 2000, max-failed-times: 3, hidden: true, include-all: true}
 Fallback: &Fallback { type: fallback, interval: 60, tolerance: 20, lazy: true, url: 'https://www.gstatic.com/generate_204', disable-udp: false, timeout: 2000, max-failed-times: 3, hidden: true, include-all: true}
 
@@ -131,7 +133,7 @@ proxy-groups:
   - { name: Apple, <<: *SelectProxy, icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Apple.png }
   - { name: Telegram, <<: *SelectProxy, icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Telegram.png }
   - { name: YouTube, <<: *SelectProxy, icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/YouTube.png}
-  - { name: BiliBili, <<: *SelectProxy, icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/bilibili.png }
+  - { name: BiliBili, <<: *SelectProxy, icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/bilibili_4.png }
   - { name: Github, <<: *SelectProxy, icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/GitHub.png }
   - { name: OpenAI, <<: *SelectProxy, icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/ChatGPT.png }
   - { name: Gemini, <<: *SelectProxy, icon: https://raw.githubusercontent.com/guaishouxiaoqi/icons/master/Color/Gemini.png }
@@ -146,16 +148,16 @@ proxy-groups:
   - { name: Twitter, <<: *SelectProxy, icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Twitter.png }
   - { name: Emby, <<: *SelectProxy, icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Emby.png }
   - { name: Steam, <<: *SelectProxy, icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Steam.png }
-  - { name: 漏网之鱼, <<: *SelectProxy, icon: https://raw.githubusercontent.com/aihdde/Rules/refs/heads/main/icon/fish.png }
-  - { name: HK, <<: *UrlTest, filter: 香港|HK|🇭🇰 , icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Hong_Kong.png }
-  - { name: TW, <<: *UrlTest, filter: 台湾|TW|🇹🇼, icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Taiwan.png }
-  - { name: JP, <<: *UrlTest, filter: 日本|JP|🇯🇵, icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Japan.png }
-  - { name: KR, <<: *UrlTest, filter: 韩国|KR|🇰🇷, icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Korea.png }
-  - { name: US, <<: *UrlTest, filter: 美国|US|🇺🇸, icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/United_States.png }
-  - { name: DE, <<: *UrlTest, filter: 德国|DE|🇩🇪, icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Germany.png }
-  - { name: SG, <<: *UrlTest, filter: 新加坡|SG|🇸🇬, icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Singapore.png }
-  - { name: FR, <<: *UrlTest, filter: 法国|FR|🇫🇷, icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/France.png }
-  - { name: UK, <<: *UrlTest, filter: 美国|US|🇺🇸, icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/United_Kingdom.png }
+  - { name: 漏网之鱼, <<: *SelectHK, icon: https://raw.githubusercontent.com/aihdde/Rules/refs/heads/main/icon/fish.png }
+  - { name: 香港, <<: *UrlTest, filter: 香港|HK|🇭🇰 , icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Hong_Kong.png }
+  - { name: 台湾, <<: *UrlTest, filter: 台湾|TW|🇹🇼, icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Taiwan.png }
+  - { name: 日本, <<: *UrlTest, filter: 日本|JP|🇯🇵, icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Japan.png }
+  - { name: 韩国, <<: *UrlTest, filter: 韩国|KR|🇰🇷, icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Korea.png }
+  - { name: 美国, <<: *UrlTest, filter: 美国|US|🇺🇸, icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/United_States.png }
+  - { name: 德国, <<: *UrlTest, filter: 德国|DE|🇩🇪, icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Germany.png }
+  - { name: 新加坡, <<: *UrlTest, filter: 新加坡|SG|🇸🇬, icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Singapore.png }
+  - { name: 法国, <<: *UrlTest, filter: 法国|FR|🇫🇷, icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/France.png }
+  - { name: 英国, <<: *UrlTest, filter: 英国|UK|🇬🇧, icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/United_Kingdom.png }
 
 # 规则锚点
 rule-anchor:
@@ -180,18 +182,20 @@ rule-providers:
   Gemini: { <<: *ClassicalYaml, url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Gemini/Gemini.yaml }
   Claude: { <<: *ClassicalYaml, url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Claude/Claude.yaml }
   Github: { <<: *ClassicalYaml, url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/GitHub/GitHub.yaml }
-    
+  ChinaMax: { <<: *ClassicalYaml, url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/ChinaMax/ChinaMax_Classical.yaml }
 
 rules:
   # 额外添加的规则
   - GEOIP,private,DIRECT
-  - DOMAIN-SUFFIX,yunaq.com,DIRECT
-  - DOMAIN-SUFFIX,jiashule.com,DIRECT
-  - DOMAIN-SUFFIX,linux.do,DIRECT
-  - DOMAIN-SUFFIX,deepseek.com,DIRECT
-  - DOMAIN-SUFFIX,volces.com,DIRECT
+  # - GEOIP,CN,DIRECT
+  # - DOMAIN-SUFFIX,yunaq.com,DIRECT
+  # - DOMAIN-SUFFIX,jiashule.com,DIRECT
+  # - DOMAIN-SUFFIX,linux.do,DIRECT
+  # - DOMAIN-SUFFIX,deepseek.com,DIRECT
+  # - DOMAIN-SUFFIX,volces.com,DIRECT
   - DOMAIN-SUFFIX,portal101.cn,DIRECT
   # 分流规则
+  - RULE-SET,ChinaMax,DIRECT
   - RULE-SET,Telegram,Telegram
   - RULE-SET,YouTube,YouTube
   - RULE-SET,BiliBili,BiliBili
@@ -208,6 +212,6 @@ rules:
   - RULE-SET,Emby,Emby
   - RULE-SET,Gemini,Gemini
   - RULE-SET,Claude,Claude
-  - RULE-SET,Github,Proxy
+  - RULE-SET,Github,Github
   # 漏网之鱼
   - MATCH,漏网之鱼

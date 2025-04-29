@@ -548,6 +548,6 @@ rules:
   - RULE-SET,Gemini,Gemini
   - RULE-SET,Claude,Claude
   - RULE-SET,Github,Proxy
-  - GEOIP,LAN,DIRECT
+  - GEOIP,private,DIRECT
   - GEOIP,CN,DIRECT
   - MATCH,Proxy
