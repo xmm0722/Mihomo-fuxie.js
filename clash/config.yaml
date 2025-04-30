@@ -62,7 +62,7 @@ dns:
     - https://dns.alidns.com/dns-query
 
 
-# geo配置
+# GEO配置
 geodata-mode: true
 geo-auto-update: true
 geo-update-interval: 24
@@ -73,7 +73,7 @@ geox-url:
   mmdb: https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/country-lite.mmdb
   asn: https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/GeoLite2-ASN.mmdb
 
-# 时钟
+# 时间同步
 ntp:
   enable: true
   write-to-system: false
@@ -120,69 +120,77 @@ external-ui-name: metacubexd
 external-ui-url: "https://github.com/MetaCubeX/metacubexd/archive/refs/heads/gh-pages.zip"
 
 # 代理组锚点
-SelectHK: &SelectHK { type: select, include-all: true, proxies: [ 香港, 台湾, 日本, 韩国, 美国, 德国, 新加坡, 法国, 英国, DIRECT, REJECT ] }
-SelectTW: &SelectTW { type: select, include-all: true, proxies: [ 台湾, Proxy, 香港, 日本, 韩国, 美国, 德国, 新加坡, 法国, 英国, DIRECT, REJECT ] }
-SelectProxy: &SelectProxy { type: select, include-all: true, proxies: [ Proxy, 香港, 台湾, 日本, 韩国, 美国, 德国, 新加坡, 法国, 英国, DIRECT, REJECT ] }
-SelectDirect: &SelectDirect { type: select, include-all: true, proxies: [ DIRECT, Proxy, 香港, 台湾, 日本, 韩国, 美国, 德国, 新加坡, 法国, 英国, REJECT ] }
-UrlTest: &UrlTest { type: url-test, interval: 60, tolerance: 20, lazy: true, url: 'https://www.gstatic.com/generate_204', disable-udp: false, timeout: 2000, max-failed-times: 3, hidden: true, include-all: true}
+SelectHK: &SelectHK { type: select, include-all: false, proxies: [ 香港, 澳门, 台湾, 日本, 韩国, 美国, 英国, 德国, 法国, 印度, 新加坡, 印尼, 越南, 泰国, 澳洲, 巴西, 其他, DIRECT, REJECT ] }
+SelectTW: &SelectTW { type: select, include-all: false, proxies: [ 台湾, Proxy, 香港, 澳门, 日本, 韩国, 美国, 英国, 德国, 法国, 印度, 新加坡, 印尼, 越南, 泰国, 澳洲, 巴西, 其他, DIRECT, REJECT ] }
+SelectProxy: &SelectProxy { type: select, include-all: false, proxies: [ Proxy, 香港, 澳门, 台湾, 日本, 韩国, 美国, 英国, 德国, 法国, 印度, 新加坡, 印尼, 越南, 泰国, 澳洲, 巴西, 其他, DIRECT, REJECT ] }
+SelectDirect: &SelectDirect { type: select, include-all: false, proxies: [ DIRECT, Proxy, 香港, 澳门, 台湾, 日本, 韩国, 美国, 英国, 德国, 法国, 印度, 新加坡, 印尼, 越南, 泰国, 澳洲, 巴西, 其他, REJECT ] }
+UrlTest: &UrlTest { type: url-test, interval: 60, tolerance: 20, lazy: true, url: 'https://www.gstatic.com/generate_204', disable-udp: false, timeout: 2000, max-failed-times: 3, hidden: false, include-all: true}
 Fallback: &Fallback { type: fallback, interval: 60, tolerance: 20, lazy: true, url: 'https://www.gstatic.com/generate_204', disable-udp: false, timeout: 2000, max-failed-times: 3, hidden: true, include-all: true}
 
 # 代理组
 proxy-groups:
-  - { name: Proxy, <<: *SelectHK, icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Global.png }
-  - { name: Apple, <<: *SelectProxy, icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Apple.png }
-  - { name: Telegram, <<: *SelectProxy, icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Telegram.png }
-  - { name: YouTube, <<: *SelectProxy, icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/YouTube.png}
-  - { name: BiliBili, <<: *SelectProxy, icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/bilibili_4.png }
-  - { name: Github, <<: *SelectProxy, icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/GitHub.png }
-  - { name: OpenAI, <<: *SelectProxy, icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/ChatGPT.png }
-  - { name: Gemini, <<: *SelectProxy, icon: https://raw.githubusercontent.com/guaishouxiaoqi/icons/master/Color/Gemini.png }
-  - { name: Claude, <<: *SelectProxy, icon: https://raw.githubusercontent.com/ke1ewang/Qi/master/Claude.png }
-  - { name: TikTok, <<: *SelectTW, icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/TikTok.png }
-  - { name: Spotify, <<: *SelectProxy, icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Spotify.png }
-  - { name: Netflix, <<: *SelectProxy, icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Netflix.png }
-  - { name: Disney, <<: *SelectProxy, icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Disney.png }
-  - { name: Google, <<: *SelectProxy, icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Google.png }
-  - { name: OneDrive, <<: *SelectProxy, icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/OneDrive.png }
-  - { name: Microsoft, <<: *SelectProxy, icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Microsoft.png }
-  - { name: Twitter, <<: *SelectProxy, icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Twitter.png }
-  - { name: Emby, <<: *SelectProxy, icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Emby.png }
-  - { name: Steam, <<: *SelectProxy, icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Steam.png }
-  - { name: 漏网之鱼, <<: *SelectHK, icon: https://raw.githubusercontent.com/aihdde/Rules/refs/heads/main/icon/fish.png }
-  - { name: 香港, <<: *UrlTest, filter: 香港|HK|🇭🇰 , icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Hong_Kong.png }
-  - { name: 台湾, <<: *UrlTest, filter: 台湾|TW|🇹🇼, icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Taiwan.png }
-  - { name: 日本, <<: *UrlTest, filter: 日本|JP|🇯🇵, icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Japan.png }
-  - { name: 韩国, <<: *UrlTest, filter: 韩国|KR|🇰🇷, icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Korea.png }
-  - { name: 美国, <<: *UrlTest, filter: 美国|US|🇺🇸, icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/United_States.png }
-  - { name: 德国, <<: *UrlTest, filter: 德国|DE|🇩🇪, icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Germany.png }
-  - { name: 新加坡, <<: *UrlTest, filter: 新加坡|SG|🇸🇬, icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Singapore.png }
-  - { name: 法国, <<: *UrlTest, filter: 法国|FR|🇫🇷, icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/France.png }
-  - { name: 英国, <<: *UrlTest, filter: 英国|UK|🇬🇧, icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/United_Kingdom.png }
+  - { name: Proxy, <<: *SelectHK, icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Rocket.png }
+  - { name: Apple, <<: *SelectProxy, icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Apple.png }
+  - { name: Telegram, <<: *SelectProxy, icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Telegram.png }
+  - { name: YouTube, <<: *SelectProxy, icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/YouTube.png}
+  - { name: BiliBili, <<: *SelectProxy, icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/bilibili_4.png }
+  - { name: Github, <<: *SelectProxy, icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/GitHub.png }
+  - { name: OpenAI, <<: *SelectProxy, icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/ChatGPT.png }
+  - { name: Gemini, <<: *SelectProxy, icon: https://testingcf.jsdelivr.net/gh/guaishouxiaoqi/icons@master/Color/Gemini.png }
+  - { name: Claude, <<: *SelectProxy, icon: https://testingcf.jsdelivr.net/gh/ke1ewang/Qi@master/Claude.png }
+  - { name: TikTok, <<: *SelectTW, icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/TikTok.png }
+  - { name: Spotify, <<: *SelectProxy, icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Spotify.png }
+  - { name: Netflix, <<: *SelectProxy, icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Netflix.png }
+  - { name: Disney, <<: *SelectProxy, icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Disney.png }
+  - { name: Google, <<: *SelectProxy, icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Google.png }
+  - { name: OneDrive, <<: *SelectProxy, icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/OneDrive.png }
+  - { name: Microsoft, <<: *SelectProxy, icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Microsoft.png }
+  - { name: Twitter, <<: *SelectProxy, icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Twitter.png }
+  - { name: Emby, <<: *SelectProxy, icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Emby.png }
+  - { name: Steam, <<: *SelectProxy, icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Steam.png }
+  - { name: 漏网之鱼, <<: *SelectHK, icon: https://testingcf.jsdelivr.net/gh/aihdde/Rules@master/icon/fish.png }
+  - { name: 香港, <<: *UrlTest, filter: 🇭🇰|香港|港|HK|hongkong|hong kong, icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Hong_Kong.png }
+  - { name: 澳门, <<: *UrlTest, filter: 🇲🇴|澳门|门|MO|macao, icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Macao.png }
+  - { name: 台湾, <<: *UrlTest, filter: 🇹🇼|台湾|台|TW|taiwan|taipei, icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Taiwan.png }
+  - { name: 日本, <<: *UrlTest, filter: 🇯🇵|日本|JP|japan|tokyo|osaka, icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Japan.png }
+  - { name: 韩国, <<: *UrlTest, filter: 🇰🇷|韩国|韩|KR|korea|seoul, icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Korea.png }
+  - { name: 美国, <<: *UrlTest, filter: 🇺🇸|美国|美|US|united states|america|los angeles|san jose|silicon valley, icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/United_States.png }
+  - { name: 英国, <<: *UrlTest, filter: 🇬🇧|英国|英|UK|united kingdom|london, icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/United_Kingdom.png }
+  - { name: 德国, <<: *UrlTest, filter: 🇩🇪|德国|德|DE|germany|frankfurt, icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Germany.png }
+  - { name: 法国, <<: *UrlTest, filter: 🇫🇷|法国|法|FR|france|paris, icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/France.png }
+  - { name: 印度, <<: *UrlTest, filter: 🇮🇳|印度|IN|india|mumbai, icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/France.png }
+  - { name: 新加坡, <<: *UrlTest, filter: 🇸🇬|新加坡|新|SG|singapore, icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Singapore.png }
+  - { name: 印尼, <<: *UrlTest, filter: 🇮🇩|印尼|印度尼西亚|ID|indonesia|jakarta, icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Singapore.png }
+  - { name: 越南, <<: *UrlTest, filter: 🇻🇳|越南|VN|vietnam, icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Singapore.png }
+  - { name: 泰国, <<: *UrlTest, filter: 🇹🇭|泰国|TH|thailand|bangkok, icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Thailand.png }
+  - { name: 澳洲, <<: *UrlTest, filter: 🇦🇺|澳大利亚|AU|australia|sydney, icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Australia.png }
+  - { name: 巴西, <<: *UrlTest, filter: 🇧🇷|巴西|brazil, icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Brazil.png }
+  - { name: 其他, <<: *UrlTest, filter: '(?i)^(?!.*(香港|台湾|日本|韩国|新加坡|美国|英国|德国|法国|印度|泰国|越南|印尼|澳大利亚|巴西|港|台|日|韩|新|美|英|德|法|印|泰|越|尼|澳|巴|hk|tw|jp|kr|sg|us|uk|de|fr|in|th|vn|id|au|br)).*', icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Brazil.png }
 
 # 规则锚点
 rule-anchor:
   DomainYaml: &DomainYaml { behavior: domain, interval: 86400, proxy: Proxy, type: http }
   ClassicalYaml: &ClassicalYaml { behavior: classical, interval: 86400, proxy: Proxy, type: http }
 rule-providers:
-  Apple: { <<: *ClassicalYaml, url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Apple/Apple_Classical.yaml}
-  Telegram: { <<: *ClassicalYaml, url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Telegram/Telegram.yaml }
-  YouTube: { <<: *ClassicalYaml, url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/YouTube/YouTube.yaml }
-  BiliBili: { <<: *ClassicalYaml, url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/BiliBili/BiliBili.yaml }
-  TikTok: { <<: *ClassicalYaml, url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/TikTok/TikTok.yaml }
-  Spotify: { <<: *ClassicalYaml, url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Spotify/Spotify.yaml }
-  Netflix: { <<: *ClassicalYaml, url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Netflix/Netflix.yaml }
-  Disney: { <<: *ClassicalYaml, url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Disney/Disney.yaml }
-  Google: { <<: *ClassicalYaml, url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Google/Google.yaml }
-  OpenAI: { <<: *ClassicalYaml, url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/OpenAI/OpenAI.yaml }
-  Microsoft: { <<: *ClassicalYaml, url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Microsoft/Microsoft.yaml }
-  Twitter: { <<: *ClassicalYaml, url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Twitter/Twitter.yaml }
-  Steam: { <<: *ClassicalYaml, url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Steam/Steam.yaml }
-  OneDrive: { <<: *ClassicalYaml, url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/OneDrive/OneDrive.yaml }
-  Emby: { <<: *ClassicalYaml, url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Emby/Emby.yaml }
-  Gemini: { <<: *ClassicalYaml, url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Gemini/Gemini.yaml }
-  Claude: { <<: *ClassicalYaml, url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Claude/Claude.yaml }
-  Github: { <<: *ClassicalYaml, url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/GitHub/GitHub.yaml }
-  ChinaMax: { <<: *ClassicalYaml, url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/ChinaMax/ChinaMax_Classical.yaml }
+  Apple: { <<: *ClassicalYaml, url: https://testingcf.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Apple/Apple_Classical.yaml}
+  Telegram: { <<: *ClassicalYaml, url: https://testingcf.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Telegram/Telegram.yaml }
+  YouTube: { <<: *ClassicalYaml, url: https://testingcf.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/YouTube/YouTube.yaml }
+  BiliBili: { <<: *ClassicalYaml, url: https://testingcf.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/BiliBili/BiliBili.yaml }
+  TikTok: { <<: *ClassicalYaml, url: https://testingcf.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/TikTok/TikTok.yaml }
+  Spotify: { <<: *ClassicalYaml, url: https://testingcf.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Spotify/Spotify.yaml }
+  Netflix: { <<: *ClassicalYaml, url: https://testingcf.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Netflix/Netflix.yaml }
+  Disney: { <<: *ClassicalYaml, url: https://testingcf.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Disney/Disney.yaml }
+  Google: { <<: *ClassicalYaml, url: https://testingcf.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Google/Google.yaml }
+  OpenAI: { <<: *ClassicalYaml, url: https://testingcf.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/OpenAI/OpenAI.yaml }
+  Microsoft: { <<: *ClassicalYaml, url: https://testingcf.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Microsoft/Microsoft.yaml }
+  Twitter: { <<: *ClassicalYaml, url: https://testingcf.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Twitter/Twitter.yaml }
+  Steam: { <<: *ClassicalYaml, url: https://testingcf.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Steam/Steam.yaml }
+  OneDrive: { <<: *ClassicalYaml, url: https://testingcf.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/OneDrive/OneDrive.yaml }
+  Emby: { <<: *ClassicalYaml, url: https://testingcf.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Emby/Emby.yaml }
+  Gemini: { <<: *ClassicalYaml, url: https://testingcf.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Gemini/Gemini.yaml }
+  Claude: { <<: *ClassicalYaml, url: https://testingcf.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Claude/Claude.yaml }
+  Github: { <<: *ClassicalYaml, url: https://testingcf.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/GitHub/GitHub.yaml }
+  ChinaMax: { <<: *ClassicalYaml, url: https://testingcf.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/ChinaMax/ChinaMax_Classical.yaml }
 
 rules:
   # 额外添加的规则
@@ -206,12 +214,12 @@ rules:
   - RULE-SET,Google,Google
   - RULE-SET,OpenAI,OpenAI
   - RULE-SET,Microsoft,Microsoft
-  - RULE-SET,Twitter,Twitter
-  - RULE-SET,Steam,Steam
   - RULE-SET,OneDrive,OneDrive
-  - RULE-SET,Emby,Emby
+  - RULE-SET,Twitter,Twitter
   - RULE-SET,Gemini,Gemini
   - RULE-SET,Claude,Claude
   - RULE-SET,Github,Github
+  - RULE-SET,Steam,Steam
+  - RULE-SET,Emby,Emby
   # 漏网之鱼
   - MATCH,漏网之鱼
