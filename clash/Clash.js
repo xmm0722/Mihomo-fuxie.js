@@ -498,6 +498,6 @@ const rules = [
   "RULE-SET,Emby,Emby",
   "RULE-SET,Gemini,Gemini",
   "RULE-SET,Claude,Claude",
-  "RULE-SET,Github,HK",
+  "RULE-SET,Github,Proxy",
   "MATCH,Proxy"
 ];
