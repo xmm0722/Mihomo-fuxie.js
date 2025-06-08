@@ -37,7 +37,7 @@ dns:
 proxy-providers:
   provider1:
     type: http
-    url: ""
+    url: "此处填订阅链接"
     path: ./provider1.yaml
     #更新间隔单位是秒
     interval: 3600
